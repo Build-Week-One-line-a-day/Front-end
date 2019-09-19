@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import LoginSignup from './components/User/LoginSignup';
 import Profile from './components/User/Profile';
