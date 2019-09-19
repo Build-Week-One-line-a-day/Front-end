@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
+import {NavLink} from 'react-router-dom'
 
 export default function RecentEntries() {
     const [entries, setEntries] = useState([])
@@ -24,8 +25,8 @@ export default function RecentEntries() {
 
     return (
         <div>
-            <button>Add New</button>
-            <button>Ten Year View</button>
+            <NavLink to='/create'><button>Add New</button></NavLink>
+            <NavLink to='/full'><button>Ten Year View</button></NavLink>
             <h1>Recent Entries</h1>
             {entries.map((entry, index) =>{
                return <p key={index}>{entry.name}</p>

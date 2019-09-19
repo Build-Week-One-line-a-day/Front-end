@@ -1,10 +1,11 @@
 import React from 'react'
+import {NavLink} from 'react-router-dom'
 
 export default function LoginSignup() {
     return (
         <div>
-            <h1>Sign Up</h1>
-            <h1>Log In</h1>
+            <NavLink to='user-form'><button>Sign Up</button></NavLink>
+            <NavLink to='user-form'><button>Log In</button></NavLink>
         </div>
     )
 }
