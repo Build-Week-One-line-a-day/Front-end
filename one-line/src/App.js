@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import LoginSignup from './components/User/LoginSignup';
-import Profile from './components/User/Profile';
+// import Profile from './components/User/Profile';
 import EntryForm from './components/Journal/EntryForm';
 import TenYear from './components/Journal/TenYear';
 import RecentEntries from './components/Journal/RecentEntries';
