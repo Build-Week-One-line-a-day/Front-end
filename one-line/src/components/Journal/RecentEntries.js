@@ -22,12 +22,11 @@ export default function RecentEntries() {
     });
     },[])
 
-
-
-    
-
     return (
         <div>
+            <button>Add New</button>
+            <button>Ten Year View</button>
+            <h1>Recent Entries</h1>
             {entries.map((entry, index) =>{
                return <p key={index}>{entry.name}</p>
             })}
