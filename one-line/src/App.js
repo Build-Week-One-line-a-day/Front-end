@@ -17,7 +17,7 @@ function App() {
       <Route path='/create' component={EntryForm}/>
       <Route path='/full' component={TenYear}/>
   
-      <Route path='/users/:id' component={Profile}/>
+      {/* <Route path='/users/:id' component={Profile}/> stretch goal*/} 
     </div>
   );
 }
