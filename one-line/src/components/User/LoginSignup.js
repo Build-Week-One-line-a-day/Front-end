@@ -7,9 +7,13 @@ export default function LoginSignup() {
     return (
         <div>
             <h1>One Line A Day Journal</h1>
+            <div>
             <img width={400} src={HomeImage}/>
-            <NavLink to='user-register'><button>Sign Up</button></NavLink>
-            <NavLink to='user-login'><button>Log In</button></NavLink>
+            <div className="button-section">
+                <NavLink to='user-register'><button>Sign Up</button></NavLink>
+                <NavLink to='user-login'><button>Log In</button></NavLink>
+            </div>
+            </div>
         </div>
     )
 }
