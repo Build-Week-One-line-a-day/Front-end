@@ -1,12 +1,15 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { withFormik, Form, Field } from 'formik';
 import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
-import { Container } from 'semantic-ui-react';
+
 
 const EntryForm = ({status}) => {
     console.log('Status', status)
-    const [entry, setEntry] = useState([]);
+    
+    // we will need the useState to set up the backend
+    // const [entry, setEntry] = useState([]);
+    
     return (
         <ContainerDiv>
             <Form>
