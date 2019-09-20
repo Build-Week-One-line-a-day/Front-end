@@ -3,6 +3,9 @@ import DatePickerComponent from './DatePickerComponent';
 import {NavLink} from 'react-router-dom'
 import styled from 'styled-components';
 import TenYearImg from '../../img/TenYear.svg';
+import BeachImg from '../../img/Beach.svg';
+import SunglassesImg from '../../img/Sunglasses.svg';
+
 
 export default function TenYear() {
     return (
@@ -24,7 +27,7 @@ export default function TenYear() {
                 
                 <div className="entry-content">
                     <div className="single-entry">
-                        <button>19'</button>
+                        <button>2019</button>
                         <div className="text">
                             <h2>Entry Title</h2>
                             <p>Entry content for each year.</p>
@@ -32,7 +35,7 @@ export default function TenYear() {
                     </div>
 
                     <div className="single-entry">
-                        <button>18'</button>
+                        <button>2018</button>
                         <div className="text">
                             <h2>Entry Title</h2>
                             <p>Entry content for each year.</p>
@@ -40,26 +43,16 @@ export default function TenYear() {
                     </div>
 
                     <div className="single-entry">
-                        <button>17'</button>
+                        <button>2017</button>
                         <div className="text">
                             <h2>Entry Title</h2>
                             <p>Entry content for each year.</p>
                         </div>
                     </div>
 
-                </div>
-
-                <div className="entry-content-two">
-                    <div className="single-entry">
-                        <button>16'</button>
-                        <div className="text">
-                            <h2>Entry Title</h2>
-                            <p>Entry content for each year.</p>
-                        </div>
-                    </div>
 
                     <div className="single-entry">
-                        <button>15'</button>
+                        <button>2016</button>
                         <div className="text">
                             <h2>Entry Title</h2>
                             <p>Entry content for each year.</p>
@@ -67,7 +60,7 @@ export default function TenYear() {
                     </div>
 
                     <div className="single-entry">
-                        <button>14'</button>
+                        <button>2015</button>
                         <div className="text">
                             <h2>Entry Title</h2>
                             <p>Entry content for each year.</p>
@@ -75,17 +68,7 @@ export default function TenYear() {
                     </div>
 
                     <div className="single-entry">
-                        <button>13'</button>
-                        <div className="text">
-                            <h2>Entry Title</h2>
-                            <p>Entry content for each year.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="entry-content-three"> 
-                    <div className="single-entry">
-                        <button>12'</button>
+                        <button>2014</button>
                         <div className="text">
                             <h2>Entry Title</h2>
                             <p>Entry content for each year.</p>
@@ -93,7 +76,17 @@ export default function TenYear() {
                     </div>
 
                     <div className="single-entry">
-                        <button>11'</button>
+                        <button>2013</button>
+                        <div className="text">
+                            <h2>Entry Title</h2>
+                            <p>Entry content for each year.</p>
+                        </div>
+                    </div>
+                
+
+                
+                    <div className="single-entry">
+                        <button>2012</button>
                         <div className="text">
                             <h2>Entry Title</h2>
                             <p>Entry content for each year.</p>
@@ -101,14 +94,28 @@ export default function TenYear() {
                     </div>
 
                     <div className="single-entry">
-                    <button>10'</button>
+                        <button>2011</button>
+                        <div className="text">
+                            <h2>Entry Title</h2>
+                            <p>Entry content for each year.</p>
+                        </div>
+                    </div>
+
+                    <div className="single-entry">
+                    <button>2010</button>
                     <div className="text">
                         <h2>Entry Title</h2>
                         <p>Entry content for each year.</p>
                     </div>
                 </div>
+            
                 </div>
             </div>
+
+            {/* <img width={650} src={BeachImg} />
+            
+            <img width={650} src={SunglassesImg} />
+            <img  />         */}
         </ContainerDiv>
     )
 }
@@ -160,9 +167,10 @@ const ContainerDiv = styled.div`
             display: grid;
             flex-direction: column;
             align-items: center;
-            grid-template-columns: 1fr 1fr 1fr;
-            width: 65%;
+            grid-template-columns: 1fr;
+            width: 90%;
             margin-left: 107px;
+            margin: 0 auto;
 
             .single-entry {
                 display: flex;
@@ -191,7 +199,7 @@ const ContainerDiv = styled.div`
                     h2 {
                         font-size: 2.5rem;
                         margin-bottom: 0px;
-                        margin-top: 0px;
+                        margin-top: 10px;
                     }
 
                     p {
@@ -206,96 +214,7 @@ const ContainerDiv = styled.div`
             
         }
 
-        .entry-content-two {
-            display: grid;
-            flex-direction: row;
-            align-items: center;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-            width: 88%;
+           
 
-            .single-entry {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                width: 70%;
-                background-color: #47CBE6;
-                margin-bottom: 25px;
-                padding: 15px;
-                border: 5px solid #3F3D56;
-                border-radius: 40px;
-
-                button {
-                    width: 40%;
-                    height: 40px;
-                    font-size: 1.5rem;
-                    border-radius: 25px;
-
-                }
-
-                .text {
-                    padding-left: 3%;
-                    width: 100%;
-
-                    h2 {
-                        font-size: 2.5rem;
-                        margin-bottom: 0px;
-                        margin-top: 0px;
-                    }
-
-                    p {
-                        font-family: 'Poiret One', cursive;
-                        font-weight: 600;
-                        font-size: 1.2rem;
-                        margin-top: 8px;
-                    }
-                }
-            }
-
-        }   
-
-     .entry-content-three {
-                display: grid;
-                flex-direction: row;
-                align-items: center;
-                grid-template-columns: 1fr 1fr 1fr 1fr;
-                width: 88%;
-                margin-left: 107px;
-    
-                .single-entry {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    width: 70%;
-                    background-color: #47CBE6;
-                    margin-bottom: 25px;
-                    padding: 15px;
-                    border: 5px solid #3F3D56;
-                    border-radius: 40px;
-    
-                    button {
-                        width: 40%;
-                        height: 40px;
-                        font-size: 1.5rem;
-                        border-radius: 25px;
-    
-                    }
-    
-                    .text {
-                        padding-left: 3%;
-                        width: 100%;
-    
-                        h2 {
-                            font-size: 2.5rem;
-                            margin-bottom: 0px;
-                            margin-top: 0px;
-                        }
-    
-                        p {
-                            font-family: 'Poiret One', cursive;
-                            font-weight: 600;
-                            font-size: 1.2rem;
-                            margin-top: 8px;
-                        }
-                    }
-                } 
+     
 `;
