@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import {NavLink} from 'react-router-dom'
 import { Card, Button } from 'semantic-ui-react'
+import notes1 from '../../DesignFiles/notes1.svg'
 
 export default function RecentEntries() {
     const [entries, setEntries] = useState([])
@@ -28,6 +29,7 @@ export default function RecentEntries() {
         <>
             <NavLink to='/create'><Button primary>Add New</Button></NavLink>
             <NavLink to='/full'><Button>Ten Year View</Button></NavLink>
+            <img width={100} src={notes1}/>
             <h1>Recent Entries</h1>
             {entries.map((entry, index) =>{
                return <Card key={index}>
