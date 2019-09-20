@@ -2,9 +2,10 @@ import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import {NavLink} from 'react-router-dom'
 import styled from 'styled-components'
-import notes1 from '../../DesignFiles/notes1.svg'
+import notesImage from '../../DesignFiles/notes1.svg'
+import Entry from './Entry'
 
-export default function RecentEntries() {
+export default function RecentEntries(props) {
     const [entries, setEntries] = useState([])
 
 
@@ -27,18 +28,16 @@ export default function RecentEntries() {
 
     return (
         <ContainerDiv>
-            <img width={100} alt='notes' src={notes1}/>
-            <div class="btn-row">
-                <NavLink to='/create'><button primary>Add New</button></NavLink>
+            <h1>Recent Entries</h1>
+            <img alt='notes' src={notesImage} alt='notes'/>
+            <div className="btn-row">
+                <NavLink to='/create'><button>Add New</button></NavLink>
                 <NavLink to='/full'><button>Ten Year View</button></NavLink>
             </div>
            
-            <h1>Recent Entries</h1>
+            
             {entries.map((entry, index) =>{
-               return <div key={index}>
-                        <p>06/06</p>
-                        <p>{entry.name}</p>
-                    </div> 
+               return <Entry {...props} entry={entry} key={index}/>
                
             })}
         </ContainerDiv>
@@ -52,6 +51,7 @@ const ContainerDiv = styled.div`
 
     img{
         margin: 0 auto;
+        width: 100px;
     }
     h1{
         font-family: 'Amatic SC',cursive;
@@ -59,5 +59,19 @@ const ContainerDiv = styled.div`
     }
     .button-row {
         display: flex;
+    }
+    button{
+        color: #fff;
+        background-color:#ba2545;
+        margin: 10px;
+        padding: 12px 12px;
+        cursor: pointer;
+        border: 0 none;
+        border-radius: 4px;
+        text-transform: uppercase;
+    }
+    button:hover{
+        transition: all 150ms linear;
+        opacity: .85;
     }
 `
