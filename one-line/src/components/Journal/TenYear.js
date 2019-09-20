@@ -1,13 +1,17 @@
 import React from 'react'
 import DatePickerComponent from './DatePickerComponent';
+import {NavLink} from 'react-router-dom'
 import styled from 'styled-components';
 
 export default function TenYear() {
     return (
         <ContainerDiv>
             <h1>One Line A Day Journal</h1>
-            <DatePickerComponent />
-            <h1>Ten Year Page</h1>
+            <NavLink to='/recent'><button>Back</button></NavLink>
+            <div>
+                <h1>Ten Year Page</h1>
+                <DatePickerComponent />
+            </div>
             
             <div className="entry-content">
                 <div className="single-entry">
