@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { withFormik, Form, Field } from 'formik';
 import axios from 'axios';
 import {withRouter} from 'react-router-dom';
+import styled from 'styled-components';
 
 const UserForm = ({status}) => {
     console.log("status", status)
@@ -14,11 +15,14 @@ const UserForm = ({status}) => {
     }, [status, users])
 
     return (
-        <Form>
-            <Field type="text" name="username" placeholder="Username" />
-            <Field type="password" name="password" placeholder="Password" />
-            <button type="submit">Register</button>
-        </Form>
+        <ContainerDiv>
+            <h1>One Line A Day Journal</h1>
+            <Form>
+                <Field type="text" name="username" placeholder="Username" />
+                <Field type="password" name="password" placeholder="Password" />
+                <button type="submit">Register</button>
+            </Form>
+        </ContainerDiv>
     )
 }
 
@@ -43,3 +47,10 @@ export default withRouter(withFormik({
           })
       }
 })(UserForm))
+
+
+const ContainerDiv = styled.div`
+    font-family: 'Amatic SC', cursive;
+
+
+`;
