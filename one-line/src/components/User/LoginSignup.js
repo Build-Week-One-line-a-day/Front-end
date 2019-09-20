@@ -5,7 +5,7 @@ export default function LoginSignup() {
     return (
         <div>
             <NavLink to='user-form'><button>Sign Up</button></NavLink>
-            <NavLink to='user-form'><button>Log In</button></NavLink>
+            <NavLink to='user-login'><button>Log In</button></NavLink>
         </div>
     )
 }
