@@ -12,9 +12,7 @@ export default function TenYear() {
         <ContainerDiv>
             <div className ="header-and-back">
                 <h1>One Line A Day Journal</h1>
-                <NavLink to='/recent'>
-                    <button>Back</button>
-                </NavLink>
+                <NavLink to='/recent'><button>Back</button></NavLink>
             </div>
 
             <img width={650} src={TenYearImg} />
@@ -152,6 +150,7 @@ const ContainerDiv = styled.div`
         top: 20%;
         left: 2%;
         width: 70%;
+        margin-top: 10px;
         
         .title-and-date {
             display: flex;
