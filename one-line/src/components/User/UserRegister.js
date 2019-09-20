@@ -11,7 +11,7 @@ const UserForm = ({status}) => {
         if(status) {
             setUsers([ ...users, status])
         }
-    }, [status])
+    }, [status, users])
 
     return (
         <Form>
