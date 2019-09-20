@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 
 
+
 const EntryForm = ({status}) => {
     console.log('Status', status)
     
@@ -18,6 +19,9 @@ const EntryForm = ({status}) => {
                 to display the current date/attach it to the timestamp of the post.
                 
                 It may change slightly depending on how the backend turns out.*/}
+
+                
+
                 <h2>09/20/2019</h2>
                 <div className="form-content">
                     {/* Entry Title -> This will be hooked up to the backend
