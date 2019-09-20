@@ -16,7 +16,7 @@ function App() {
       <Route path='/user-register' component={UserRegister}/>
       <Route path='/recent' render={(props) => <RecentEntries {...props}/>}/>
       <Route path='/create' component={EntryForm}/>
-      <Route path='/edit' component={EntryForm}/>
+      <Route path='/edit/:id' component={EntryForm}/>
       <Route path='/full' component={TenYear}/>
       <Route path='/user-login' component={UserLogin} />
   

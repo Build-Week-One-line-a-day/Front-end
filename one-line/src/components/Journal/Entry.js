@@ -4,10 +4,10 @@ import {NavLink} from 'react-router-dom'
 
 export default function Entry(props) {
     console.log(props)
-    
+    const id = props.history.location.key;
     return (
         <ContainerDiv>
-            <NavLink to='/edit'>
+            <NavLink to={`/edit/${id}`}>
                 <button>06/06</button>
             </NavLink>
             <div>
@@ -21,10 +21,11 @@ export default function Entry(props) {
 const ContainerDiv = styled.div`
     display: flex;
     justify-content: space-around;
-    border: 1px solid gray;
+    border: .5px solid darkgray;
     width: 400px;
-    margin: 1.5px auto;
+    margin: 2px auto;
     padding-right: 2.5%;
+    border-radius: 5px;
     
 
     a button{

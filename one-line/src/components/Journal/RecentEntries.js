@@ -51,11 +51,13 @@ const ContainerDiv = styled.div`
 
     img{
         margin: 0 auto;
-        width: 100px;
+        width: 150px;
+        padding: 2rem;
     }
     h1{
         font-family: 'Amatic SC',cursive;
         font-size: 3rem;
+        margin-bottom: 0;
     }
     .button-row {
         display: flex;
