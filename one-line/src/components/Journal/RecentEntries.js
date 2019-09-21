@@ -48,7 +48,6 @@ const ContainerDiv = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border: 1px solid red;
     padding: 0 2rem;
 
     @media only screen and (max-width: 600px) {
