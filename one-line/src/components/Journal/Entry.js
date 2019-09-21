@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import {NavLink} from 'react-router-dom'
 
 export default function Entry(props) {
-    console.log(props)
-    const id = props.history.location.key;
+    console.log("entry props", props)
+    const id = props.index;
     return (
         <ContainerDiv>
             <NavLink to={`/edit/${id}`}>

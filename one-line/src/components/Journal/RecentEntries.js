@@ -37,7 +37,7 @@ export default function RecentEntries(props) {
            
             
             {entries.map((entry, index) =>{
-               return <Entry {...props} entry={entry} key={index}/>
+               return <Entry {...props} entry={entry} index={index} key={index}/>
                
             })}
         </ContainerDiv>
