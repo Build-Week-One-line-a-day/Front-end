@@ -25,10 +25,12 @@ export default function TenYear() {
                 
                 <div className="entry-content">
                     <div className="single-entry">
+                        
                         <button>2019</button>
+                    
                         <div className="text">
                             <h2>Entry Title</h2>
-                            <p>Entry content for each year.</p>
+                            <p>Lorem ipsum dolor amet wolf ramps unicorn, gluten-free four loko everyday carry waistcoat biodiesel meggings drinking vinegar lo-fi slow-carb chia lyft flannel. Bicycle rights everyday carry tattooed, banjo chambray cred street art gluten-free tilde you probably haven't heard of them hammock. Hot chicken prism crucifix farm-to-table shaman tattooed. Copper mug art party +1 lo-fi tbh microdosing.</p>
                         </div>
                     </div>
 
@@ -172,33 +174,50 @@ const ContainerDiv = styled.div`
             margin: 0 auto;
 
             .single-entry {
-                display: flex;
-                align-items: center;
+                display: grid;
+                grid-template-columns: 85px 1fr;
+                text-align: left;
+
+
+
+
+                // display: flex;
+                // align-items: center;
                 width: 68%;
-                background-color: #47CBE6;
+                background-color: #fff;
                 margin-bottom: 25px;
                 padding: 15px;
-                border: 5px solid #3F3D56;
-                border-radius: 40px;
+                // border: 5px solid #3F3D56;
+                // border-radius: 40px;
                 flex-direction: column;
                 margin-right: 21px;
 
-                button {
-                    width: 40%;
-                    height: 40px;
-                    font-size: 1.5rem;
-                    border-radius: 25px;
+                border: .5px solid darkgray;
+                border-radius: 5px;
 
+                button {
+                    color: #fff;
+                    background: #47CBE6;
+                    padding: 6px 6px;
+                    cursor: pointer;
+                    border: 0 none;
+                    border-radius: 3px;
+                    text-transform: uppercase;
+                    font-weight: bold;
+                    height: 30px;
+                    width: 65%;
+                    font-size: 1rem;
+                    margin-top: 10px;
                 }
 
                 .text {
-                    padding-left: 3%;
+                    // padding-left: 3%;
                     width: 100%;
 
                     h2 {
                         font-size: 2.5rem;
                         margin-bottom: 0px;
-                        margin-top: 10px;
+                        margin-top: 0px;
                     }
 
                     p {
