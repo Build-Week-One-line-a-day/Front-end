@@ -90,14 +90,40 @@ const ContainerDiv = styled.div`
     .form-content {
         display: flex;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 5px;
 
         input {
+            border-radius: 5px;
+            width: 100%;
+            padding: .666rem 0;
             margin-bottom: 10px;
+            border: .5px solid darkgray;
         }
 
         textarea {
+            width: 100%;
+            padding: 2rem 0;
             margin-bottom: 10px;
             height: 100px;
+            border-radius: 5px;
+            border: .5px solid darkgray;
+        }
+        button{
+            width: 100%;
+            color: #fff;
+            background-color:#ba2545;
+            margin: 10px;
+            padding: 12px 12px;
+            cursor: pointer;
+            border: 0 none;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+        button:hover{
+            transition: all 150ms linear;
+            opacity: .85;
         }
     }
 `;
