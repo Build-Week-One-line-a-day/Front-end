@@ -10,7 +10,7 @@ export default function Entry(props) {
             <NavLink to={`/edit/${id}`}>
                 <button>06/06</button>
             </NavLink>
-            <div>
+            <div className="text-content">
                 <p>{props.entry.name}</p>
                 <p>Lorem ipsum dolor amet wolf ramps unicorn, gluten-free four loko everyday carry waistcoat biodiesel meggings drinking vinegar lo-fi slow-carb chia lyft flannel. Bicycle rights everyday carry tattooed, banjo chambray cred street art gluten-free tilde you probably haven't heard of them hammock. Hot chicken prism crucifix farm-to-table shaman tattooed. Copper mug art party +1 lo-fi tbh microdosing. </p>
             </div>
@@ -30,17 +30,25 @@ const ContainerDiv = styled.div`
 
     a button{
         color: #fff;
-        background: cornflowerblue;
+        background: #47CBE6;
         padding: 6px 6px;
         cursor: pointer;
         border: 0 none;
         border-radius: 3px;
         text-transform: uppercase;
         font-weight: bold;
+        height: 15%;
+        width: 80%;
+        font-size: .9rem;
     }
     a button:hover{
         transition: all 150ms linear;
         opacity: .85;
+    }
+
+    .text-content {
+        text-align: left;
+        margin-left: 4%;
     }
    
 `
