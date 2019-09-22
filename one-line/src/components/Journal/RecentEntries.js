@@ -48,6 +48,13 @@ const ContainerDiv = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding: 0 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+
+    @media only screen and (max-width: 600px) {
+        padding: 0 .5rem;
+      }
 
     img{
         margin: 0 auto;
