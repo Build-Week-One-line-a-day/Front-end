@@ -22,7 +22,7 @@ const ContainerDiv = styled.div`
     display: flex;
     justify-content: space-around;
     border: .5px solid darkgray;
-    margin: 2px auto;
+    margin: 7.5px auto;
     padding-right: 2.5%;
     border-radius: 5px;
     
