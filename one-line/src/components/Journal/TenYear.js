@@ -12,10 +12,11 @@ export default function TenYear() {
         <ContainerDiv>
             <div className ="header-and-back">
                 <h1>One Line A Day Journal</h1>
+                <img width={150} src={TenYearImg} />
                 <NavLink to='/recent'><button>Back</button></NavLink>
             </div>
 
-            <img width={650} src={TenYearImg} />
+            
             
             <div className="title-date-entry">
                 <div className="title-and-date">
@@ -130,6 +131,9 @@ const ContainerDiv = styled.div`
 
     .header-and-back {
         margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         
         h1 {
             
@@ -138,7 +142,19 @@ const ContainerDiv = styled.div`
 
         a {
             button {
-                
+                color: #fff;
+                background-color: #ba2545;
+                margin: 10px;
+                padding: 12px 12px;
+                cursor: pointer;
+                border: 0 none;
+                border-radius: 4px;
+                text-transform: uppercase;
+                width: 90px;
+                font-size: 1rem;
+                font-weight: 800;
+                // font-family: 'Poiret One',cursive;
+                margin-left: 70px;
             }
         }
     }
@@ -148,11 +164,11 @@ const ContainerDiv = styled.div`
     }
 
     .title-date-entry {
-        position: absolute;
-        top: 20%;
-        left: 2%;
+        // position: absolute;
+        // top: 40%;
+        // left: 2%;
         width: 70%;
-        margin-top: 10px;
+        // margin-top: 10px;
         
         .title-and-date {
             display: flex;
@@ -170,8 +186,8 @@ const ContainerDiv = styled.div`
             align-items: center;
             grid-template-columns: 1fr;
             width: 90%;
-            margin-left: 107px;
-            margin: 0 auto;
+            // margin-left: 107px;
+            // margin: 0 auto;
 
             .single-entry {
                 display: grid;
