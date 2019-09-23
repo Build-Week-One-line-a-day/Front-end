@@ -65,21 +65,24 @@ const ContainerDiv = styled.div`
         font-size: 3rem;
         margin-bottom: 0;
     }
-    .button-row {
-        display: flex;
-    }
-    button{
-        color: #fff;
-        background-color:#ba2545;
-        margin: 10px;
-        padding: 12px 12px;
-        cursor: pointer;
-        border: 0 none;
-        border-radius: 4px;
-        text-transform: uppercase;
-    }
-    button:hover{
-        transition: all 150ms linear;
-        opacity: .85;
+
+    .btn-row {
+        button{
+            color: #fff;
+            background-color: #ba2545;
+            margin: 10px;
+            padding: 12px 12px;
+            cursor: pointer;
+            border: 0 none;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-size: 1rem;
+            font-weight: 800;
+            margin-left: 70px;
+        }
+        button:hover{
+            transition: all 150ms linear;
+            opacity: .85;
+        }
     }
 `
