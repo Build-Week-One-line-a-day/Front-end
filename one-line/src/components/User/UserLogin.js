@@ -67,6 +67,12 @@ const ContainerDiv = styled.div`
         font-size: 3rem;
     }
 
+    img {
+        @media only screen and (max-width: 600px) {
+            width: 90%;
+        }
+    }
+
     form {
 
         .form-content {
@@ -76,6 +82,12 @@ const ContainerDiv = styled.div`
             top: 45%;
             left: 60%;
             width: 12%;
+
+            @media only screen and (max-width: 600px) {
+                top: 29%;
+                left: 68%;
+                width: 23%;
+            }
         
             input {
                 font-size: 1rem;
@@ -84,13 +96,19 @@ const ContainerDiv = styled.div`
             }
 
             button {
-                font-size: 1rem;
                 border-radius: 20px;
                 height: 40px;
                 margin-top: 20px;
-                font-family: 'Poiret One', cursive;
+                // font-family: 'Poiret One', cursive;
                 font-weight: 600;
                 font-size: 1.4rem;
+
+                @media only screen and (max-width: 600px) {
+                    font-size: 1rem;
+                    margin-top: -3px;
+                    /* font-family: 'Poiret One',cursive; */
+                    font-weight: 800;
+                }
             }
         }
         
