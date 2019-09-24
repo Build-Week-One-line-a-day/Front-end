@@ -30,6 +30,12 @@ const ContainerDiv = styled.div`
     .button-img-container {
         display: flex;
         justify-content: center;
+
+        img {
+            @media only screen and (max-width: 600px) {
+                width: 90%;
+            }
+        }
     }
     .button-section {
         display: flex;
@@ -38,9 +44,14 @@ const ContainerDiv = styled.div`
         padding-top: 182px;
         left: 63%;
 
+        @media only screen and (max-width: 600px) {
+            padding-top: 21%;
+            left: 68%;
+          }
+
         button {
-            font-family: 'Poiret One', cursive;
-            font-weight: 600;
+            // font-family: 'Poiret One', cursive;
+            font-weight: 800;
             width: 96px;
             height: 52px;
             border-radius: 27px;
