@@ -79,6 +79,10 @@ const ContainerDiv = styled.div`
             font-size: 1rem;
             font-weight: 800;
             margin-left: 70px;
+
+            @media only screen and (max-width: 600px) {
+                margin-left: 0px;
+              }
         }
         button:hover{
             transition: all 150ms linear;
