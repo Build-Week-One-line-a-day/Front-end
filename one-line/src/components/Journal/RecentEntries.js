@@ -10,11 +10,11 @@ export default function RecentEntries(props) {
 
     useEffect(()=>{
         // Make a request for a user with a given ID
-        axios.get('https://swapi.co/api/people/')
+        axios.get('https://bw-one-line-a-day.herokuapp.com/api/users/1/posts')
         .then(function (response) {
         // handle success
-        console.log(response.data.results);
-        setEntries(response.data.results)
+        console.log(response.data);
+        setEntries(response.data)
     })
         .catch(function (error) {
         // handle error

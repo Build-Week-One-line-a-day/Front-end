@@ -8,11 +8,11 @@ export default function Entry(props) {
     return (
         <ContainerDiv>
             <NavLink to={`/edit/${id}`}>
-                <button>06/06</button>
+                <button>{props.entry.created_at}</button>
             </NavLink>
             <div className="text-content">
-                <h2>{props.entry.name}</h2>
-                <p>Lorem ipsum dolor amet wolf ramps unicorn, gluten-free four loko everyday carry waistcoat biodiesel meggings drinking vinegar lo-fi slow-carb chia lyft flannel. Bicycle rights everyday carry tattooed, banjo chambray cred street art gluten-free tilde you probably haven't heard of them hammock. Hot chicken prism crucifix farm-to-table shaman tattooed. Copper mug art party +1 lo-fi tbh microdosing. </p>
+                <h2>{props.entry.title}</h2>
+                <p>{props.entry.contents}</p>
             </div>
         </ContainerDiv>
     )
