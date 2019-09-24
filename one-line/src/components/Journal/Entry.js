@@ -25,6 +25,13 @@ const ContainerDiv = styled.div`
     margin: 7.5px auto;
     padding-right: 2.5%;
     border-radius: 5px;
+    width: 75%;
+
+    @media only screen and (max-width: 600px) {
+        width: 95%;
+        margin: 0 auto;
+        margin-bottom: 15px;
+      }
     
 
     a button{
@@ -37,9 +44,12 @@ const ContainerDiv = styled.div`
         text-transform: uppercase;
         font-weight: bold;
         height: 30px;
-        width: 80%;
+        width: 100%;
         font-size: .9rem;
         margin-top: 20px;
+        margin-left: 20%;
+
+        
     }
     a button:hover{
         transition: all 150ms linear;
@@ -49,6 +59,10 @@ const ContainerDiv = styled.div`
     .text-content {
         text-align: left;
         margin-left: 4%;
+
+        @media only screen and (max-width: 600px) {
+            margin-left: 7%;
+          }
     }
 
     h2 {
