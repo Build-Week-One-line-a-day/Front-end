@@ -27,9 +27,10 @@ export default function RecentEntries(props) {
 
     return (
         <ContainerDiv>
-            <h1>Recent Entries</h1>
+            <h1>One Line A Day Journal</h1>
             <img alt='notes' src={notesImage} alt='notes'/>
             <div className="btn-row">
+            <h1>Recent Entries</h1>
                 <NavLink to='/create'><button>Add New</button></NavLink>
                 <NavLink to='/full'><button>Ten Year View</button></NavLink>
             </div>
@@ -67,10 +68,14 @@ const ContainerDiv = styled.div`
     }
 
     .btn-row {
+        width: 75%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         button{
             color: #fff;
             background-color: #ba2545;
-            margin: 10px;
             padding: 12px 12px;
             cursor: pointer;
             border: 0 none;
@@ -78,7 +83,7 @@ const ContainerDiv = styled.div`
             text-transform: uppercase;
             font-size: 1rem;
             font-weight: 800;
-            margin-left: 70px;
+            
 
             @media only screen and (max-width: 600px) {
                 margin-left: 0px;
@@ -87,6 +92,11 @@ const ContainerDiv = styled.div`
         button:hover{
             transition: all 150ms linear;
             opacity: .85;
+        }
+
+        h1{
+            font-size: 2em;
+            font-family: 'Amatic SC',cursive;
         }
     }
 `
