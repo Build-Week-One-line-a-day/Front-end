@@ -12,6 +12,7 @@ export default function RecentEntries(props) {
     
 
     useEffect(()=>{
+        console.log('recent entries props', props)
         // Make a request for a user with a given ID
         axios.get(`https://bw-one-line-a-day.herokuapp.com/api/users/${props.id}/posts`)
         .then(function (response) {
