@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import LoginSignup from './components/User/LoginSignup';
 // import Profile from './components/User/Profile';
@@ -10,15 +10,17 @@ import UserRegister from './components/User/UserRegister';
 import UserLogin from './components/User/UserLogin';
 
 function App() {
+  const [id, setId] = useState()
+  console.log('id', id)
   return (
     <div className="App">
       <Route exact path='/' component={LoginSignup}/>
-      <Route path='/user-register' component={UserRegister}/>
-      <Route path='/recent' render={(props) => <RecentEntries {...props}/>}/>
-      <Route path='/create' component={EntryForm}/>
+      <Route path='/user-register'  render={(props) => <UserRegister {...props} setId={setId} />} />
+      <Route path='/recent' render={(props) => <RecentEntries {...props} id={id}/>}/>
+      <Route path='/create' render={(props) => <EntryForm {...props} id={id}/>}/>
       <Route path='/edit/:id' component={EntryForm}/>
       <Route path='/full' component={TenYear}/>
-      <Route path='/user-login' component={UserLogin} />
+      <Route path='/user-login'  render={(props) => <UserLogin {...props} setId={setId} />}/>
   
       {/* <Route path='/users/:id' component={Profile}/> stretch goal*/} 
     </div>

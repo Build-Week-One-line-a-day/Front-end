@@ -1,13 +1,19 @@
-import React from 'react'
+import React, { useState, useEffect }from 'react'
 import DatePickerComponent from './DatePickerComponent';
-import {NavLink} from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import styled from 'styled-components';
 import TenYearImg from '../../img/TenYear.svg';
-import BeachImg from '../../img/Beach.svg';
-import SunglassesImg from '../../img/Sunglasses.svg';
+// import BeachImg from '../../img/Beach.svg';
+// import SunglassesImg from '../../img/Sunglasses.svg';
 
 
-export default function TenYear() {
+export default function TenYear(props) {
+    console.log('Ten Year Props', props)
+    
+    
+    
+    
+    
     return (
         <ContainerDiv>
             <div className ="header-and-back">
@@ -17,8 +23,14 @@ export default function TenYear() {
             </div>
 
             
+
+
+
+
+
+
             
-            <div className="title-date-entry">
+            {/* <div className="title-date-entry">
                 <div className="title-and-date">
                     <h1>Ten Year Page</h1>
                     <DatePickerComponent />
@@ -111,7 +123,7 @@ export default function TenYear() {
                 </div>
             
                 </div>
-            </div>
+            </div> */}
 
             {/* <img width={650} src={BeachImg} />
             

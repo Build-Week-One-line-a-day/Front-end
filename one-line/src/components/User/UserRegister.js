@@ -5,7 +5,7 @@ import {withRouter} from 'react-router-dom';
 import styled from 'styled-components';
 import HomeImage from '../../img/HomeImage.svg';
 
-const UserForm = ({status}) => {
+const UserForm = ({status, setId}) => {
     console.log("status", status)
     const [users, setUsers] = useState([]);
 
@@ -45,8 +45,12 @@ export default withRouter(withFormik({
         console.log('formikBag', formikBag)
         axios.post('https://bw-one-line-a-day.herokuapp.com/api/auth/register', values)
           .then((res) => {
+            console.log('register res', res)
+            formikBag.props.setId(res.data.user.id)
             localStorage.setItem('token', res.data.token)
             formikBag.props.history.push('/recent')
+            // setStatus({userid: res.data.user.id})
+            // console.log('user id', res.data.user.id)
           })
           .catch((err) => {
             console.log('Error: ', err)

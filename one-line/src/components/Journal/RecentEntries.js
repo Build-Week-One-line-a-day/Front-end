@@ -6,11 +6,14 @@ import notesImage from '../../DesignFiles/notes1.svg'
 import Entry from './Entry'
 
 export default function RecentEntries(props) {
+    console.log('recent entries props', props)
+
     const [entries, setEntries] = useState([])
+    
 
     useEffect(()=>{
         // Make a request for a user with a given ID
-        axios.get('https://bw-one-line-a-day.herokuapp.com/api/users/1/posts')
+        axios.get(`https://bw-one-line-a-day.herokuapp.com/api/users/${props.id}/posts`)
         .then(function (response) {
         // handle success
         console.log(response.data);
