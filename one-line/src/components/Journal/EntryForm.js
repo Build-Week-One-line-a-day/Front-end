@@ -1,15 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react';
+import axios from 'axios';
 import { withFormik, Form, Field } from 'formik';
 import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 
 
 
-const EntryForm = ({status}) => {
-    console.log('Status', status)
-    
+const EntryForm = (props) => {
+    console.log('props - entry form', props)
+    console.log('id prop', props.id)
     // we will need the useState to set up the backend
-    // const [entry, setEntry] = useState([]);
+    // const [entry, setEntry] = useState({
+    //     entry: '',
+    //     title: ''
+    // });
     
     return (
         <ContainerDiv>
@@ -32,6 +36,8 @@ const EntryForm = ({status}) => {
                     api when we get access to it. */}
                     <Field component="textarea" name="entry" placeholder="Enter something about your day here" />
                     
+                    <Field type="hidden" name="id" />
+
                     {/* Submit button -> Hook up to the backend and also route to
                     recent page after data from entry is saved to backend */}
                     <button type="submit">Save Entry</button>
@@ -45,7 +51,8 @@ export default withRouter(withFormik({
     mapPropsToValues: (values) => {
         return {
             title: values.title || '',
-            entry: values.entry || '',
+            contents: values.entry || '',
+            id: values.id || ''
         }
     },
 
@@ -55,16 +62,17 @@ export default withRouter(withFormik({
     handleSubmit: (values, formikBag) => {
         console.log("Values", values);
         console.log('formikBag', formikBag)
-        // axios.post('', values)
-        //   .then((res) => {
-
+        const {id, ...rest} = values;
+        axios.post(`https://bw-one-line-a-day.herokuapp.com/api/users/${id}/posts`, rest)
+          .then((res) => {
+            // setEntry(res.data)
                 // the .then will route the save button to the 
                 // recent page after saving entry to backend
 
-        //   })
-        //   .catch((err) => {
-            // console.log('Error: ', err)
-        //   })
+          })
+          .catch((err) => {
+            console.log('Error: ', err)
+          })
       }
 
 })(EntryForm))
