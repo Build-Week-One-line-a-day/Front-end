@@ -1,8 +1,10 @@
-import React, { useState, useEffect }from 'react'
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import DatePickerComponent from './DatePickerComponent';
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import TenYearImg from '../../img/TenYear.svg';
+import Entry from './Entry';
 // import BeachImg from '../../img/Beach.svg';
 // import SunglassesImg from '../../img/Sunglasses.svg';
 
@@ -10,8 +12,22 @@ import TenYearImg from '../../img/TenYear.svg';
 export default function TenYear(props) {
     console.log('Ten Year Props', props)
     
+    const [entries, setEntries] = useState([])
     
-    
+    useEffect(() => {
+        console.log('TenYear useEffect props', props)
+
+        axios.get(`https://bw-one-line-a-day.herokuapp.com/api/users/${props.id}/posts`)
+        .then((res) => {
+            setEntries(res.data)
+        })
+        .catch((err) => {
+            console.log('Error', err)
+        })
+        .finally(() => {
+            //always executed
+        })
+    }, [])
     
     
     return (
@@ -21,9 +37,15 @@ export default function TenYear(props) {
                 <img width={150} src={TenYearImg} />
                 <NavLink to='/recent'><button>Back</button></NavLink>
             </div>
-
             
-
+            <div className="title-and-date">
+                <h1>Ten Year Page</h1>
+                <DatePickerComponent />
+            </div>
+            
+            {entries.map((entry, index) =>{
+                return <Entry {...props} entry={entry} index={index} key={index} />
+            })}
 
 
 
@@ -31,10 +53,7 @@ export default function TenYear(props) {
 
             
             {/* <div className="title-date-entry">
-                <div className="title-and-date">
-                    <h1>Ten Year Page</h1>
-                    <DatePickerComponent />
-                </div>
+                
                 
                 <div className="entry-content">
                     <div className="single-entry">

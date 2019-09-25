@@ -34,7 +34,7 @@ const EntryForm = (props) => {
 
                     {/* Entry Content -> This will be hooked up to the backend
                     api when we get access to it. */}
-                    <Field component="textarea" name="entry" placeholder="Enter something about your day here" />
+                    <Field component="textarea" name="contents" placeholder="Enter something about your day here" />
                     
                     <Field type="hidden" name="id" />
 
@@ -51,7 +51,7 @@ export default withRouter(withFormik({
     mapPropsToValues: (values) => {
         return {
             title: values.title || '',
-            contents: values.entry || '',
+            contents: values.contents || '',
             id: values.id || ''
         }
     },
