@@ -32,15 +32,12 @@ export default function TenYear(props) {
     
     return (
         <ContainerDiv>
-            <div className ="header-and-back">
-                <h1>One Line A Day Journal</h1>
-                <img width={150} src={TenYearImg} />
-                <NavLink to='/recent'><button>Back</button></NavLink>
-            </div>
-            
-            <div className="title-and-date">
+            <h1>One Line A Day Journal</h1>
+            <img src={TenYearImg} alt='tenyearimg' />
+            <div className="btn-row">
                 <h1>Ten Year Page</h1>
                 <DatePickerComponent />
+                <NavLink to='/recent'><button>Back</button></NavLink>
             </div>
             
             {entries.map((entry, index) =>{
@@ -52,133 +49,59 @@ export default function TenYear(props) {
 }
 
 
-
 const ContainerDiv = styled.div`
-    font-family: 'Amatic SC',cursive;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    justify-content: center;
+    padding: 0 2rem;
+    max-width: 800px;
+    margin: 0 auto;
 
-    .header-and-back {
+    @media only screen and (max-width: 600px) {
+        padding: 0 .5rem;
+      }
+
+    img{
+        margin: 0 auto;
+        width: 150px;
+        padding: 2rem;
+    }
+    h1{
+        font-family: 'Amatic SC',cursive;
+        font-size: 3rem;
+        margin-bottom: 0;
+    }
+
+    .btn-row {
+        width: 75%;
         margin: 0 auto;
         display: flex;
-        flex-direction: column;
+        justify-content: space-between;
         align-items: center;
-        
-        h1 {
+        button{
+            color: #fff;
+            background-color: #ba2545;
+            padding: 12px 12px;
+            cursor: pointer;
+            border: 0 none;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-size: 1rem;
+            font-weight: 800;
             
-            font-size: 3rem;
+
+            @media only screen and (max-width: 600px) {
+                margin-left: 0px;
+              }
+        }
+        button:hover{
+            transition: all 150ms linear;
+            opacity: .85;
         }
 
-        a {
-            button {
-                color: #fff;
-                background-color: #ba2545;
-                margin: 10px;
-                padding: 12px 12px;
-                cursor: pointer;
-                border: 0 none;
-                border-radius: 4px;
-                text-transform: uppercase;
-                width: 90px;
-                font-size: 1rem;
-                font-weight: 800;
-                // font-family: 'Poiret One',cursive;
-                margin-left: 70px;
-            }
+        h1{
+            font-size: 2em;
+            font-family: 'Amatic SC',cursive;
         }
     }
-
-    img {
-
-    }
-
-    .title-date-entry {
-        // position: absolute;
-        // top: 40%;
-        // left: 2%;
-        width: 70%;
-        // margin-top: 10px;
-        
-        .title-and-date {
-            display: flex;
-            flex-direction: row;
-
-            .react-datepicker-wrapper {
-                padding-left: 30px;
-                margin-top: 34px;
-            }
-        }
-
-        .entry-content {
-            display: grid;
-            flex-direction: column;
-            align-items: center;
-            grid-template-columns: 1fr;
-            width: 90%;
-            // margin-left: 107px;
-            // margin: 0 auto;
-
-            .single-entry {
-                display: grid;
-                grid-template-columns: 85px 1fr;
-                text-align: left;
-
-
-
-
-                // display: flex;
-                // align-items: center;
-                width: 68%;
-                background-color: #fff;
-                margin-bottom: 25px;
-                padding: 15px;
-                // border: 5px solid #3F3D56;
-                // border-radius: 40px;
-                flex-direction: column;
-                margin-right: 21px;
-
-                border: .5px solid darkgray;
-                border-radius: 5px;
-
-                button {
-                    color: #fff;
-                    background: #47CBE6;
-                    padding: 6px 6px;
-                    cursor: pointer;
-                    border: 0 none;
-                    border-radius: 3px;
-                    text-transform: uppercase;
-                    font-weight: bold;
-                    height: 30px;
-                    width: 65%;
-                    font-size: 1rem;
-                    margin-top: 10px;
-                }
-
-                .text {
-                    // padding-left: 3%;
-                    width: 100%;
-
-                    h2 {
-                        font-size: 2.5rem;
-                        margin-bottom: 0px;
-                        margin-top: 0px;
-                    }
-
-                    p {
-                        font-family: 'Poiret One',cursive;
-                        font-weight: 600;
-                        font-size: 1.2rem;
-                        margin-top: 9px;
-                    }
-                }
-            }
-
-            
-        }
-
-           
-
-     
-`;
+`
