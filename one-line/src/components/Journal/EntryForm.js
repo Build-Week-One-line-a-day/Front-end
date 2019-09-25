@@ -68,7 +68,8 @@ export default withRouter(withFormik({
             // setEntry(res.data)
                 // the .then will route the save button to the 
                 // recent page after saving entry to backend
-
+                formikBag.props.history.push('/recent')
+                console.log(formikBag)
           })
           .catch((err) => {
             console.log('Error: ', err)

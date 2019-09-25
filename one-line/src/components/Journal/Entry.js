@@ -14,6 +14,7 @@ export default function Entry(props) {
         .then(function (response) {
         // handle success
         console.log(response);
+        props.history.push('/recent')
         })
         .catch(function (error) {
         // handle error
