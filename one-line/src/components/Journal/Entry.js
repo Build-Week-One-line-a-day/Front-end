@@ -1,17 +1,37 @@
 import React from 'react'
 import styled from 'styled-components'
 import {NavLink} from 'react-router-dom'
+import axios from 'axios';
 
 export default function Entry(props) {
     console.log("entry props", props)
-    const id = props.index;
+    const index = props.index;
+
+
+    const deletePost = () => {
+        // Make a request for a user with a given ID
+        axios.delete(`https://bw-one-line-a-day.herokuapp.com/api/users/posts/${props.entry.id}`)
+        .then(function (response) {
+        // handle success
+        console.log(response);
+        })
+        .catch(function (error) {
+        // handle error
+        console.log(error);
+        })
+    }
+
     return (
         <ContainerDiv>
-            <NavLink to={`/edit/${id}`}>
+            <NavLink to={`/edit/${index}`}>
                 <button>{props.entry.created_at}</button>
             </NavLink>
             <div className="text-content">
-                <h2>{props.entry.title}</h2>
+                <div className="text-content-title">
+                    <h2>{props.entry.title}</h2>
+                    <button onClick={deletePost}>trash</button>
+                </div>
+                
                 <p>{props.entry.contents}</p>
             </div>
         </ContainerDiv>
@@ -63,7 +83,17 @@ const ContainerDiv = styled.div`
         @media only screen and (max-width: 600px) {
             margin-left: 7%;
           }
+
+        .text-content-title{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            button{
+                border: 1px solid red;
+            } 
+        }   
     }
+
 
     h2 {
         font-family: 'Amatic SC',cursive;
