@@ -7,8 +7,10 @@ import Entry from './Entry'
 
 export default function RecentEntries(props) {
     console.log('recent entries props', props)
+    
 
     const [entries, setEntries] = useState([])
+    
     
 
     useEffect(()=>{
@@ -41,8 +43,7 @@ export default function RecentEntries(props) {
            
             
             {entries.map((entry, index) =>{
-               return <Entry {...props} entry={entry} index={index} key={index}/>
-               
+               return <Entry {...props} setEntries={setEntries} entry={entry} index={index} key={index}/>
             })}
         </ContainerDiv>
     )
