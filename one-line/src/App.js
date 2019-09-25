@@ -19,7 +19,7 @@ function App() {
       <Route path='/recent' render={(props) => <RecentEntries {...props} id={id}/>}/>
       <Route path='/create' render={(props) => <EntryForm {...props} id={id}/>}/>
       <Route path='/edit/:id' component={EntryForm}/>
-      <Route path='/full' component={TenYear}/>
+      <Route path='/full' render={(props) => <TenYear {...props} id={id}/>}/>
       <Route path='/user-login'  render={(props) => <UserLogin {...props} setId={setId} />}/>
   
       {/* <Route path='/users/:id' component={Profile}/> stretch goal*/} 
