@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import DatePickerComponent from './DatePickerComponent';
+import React, { useState, useEffect} from 'react';
+// import axios from 'axios';
+// import DatePickerComponent from './DatePickerComponent';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import TenYearImg from '../../img/TenYear.svg';
@@ -12,23 +12,88 @@ import Entry from './Entry';
 export default function TenYear(props) {
     console.log('Ten Year Props', props)
     
-    const [entries, setEntries] = useState([])
-    
-    useEffect(() => {
-        console.log('TenYear useEffect props', props)
+    const [date, setDate] = useState('');
+    // const [entries, setEntries] = useState([])
+    const [masterEntries, setMasterEntries] = useState();
 
-        axios.get(`https://bw-one-line-a-day.herokuapp.com/api/users/${props.id}/posts`)
-        .then((res) => {
-            setEntries(res.data)
-        })
-        .catch((err) => {
-            console.log('Error', err)
-        })
-        .finally(() => {
-            //always executed
-        })
+    // let masterEntries;
+
+    useEffect(() => {
+        const user = {
+                "id": 17,
+                "title": "next week",
+                "contents": "seed text",
+                "user_id": 7,
+                "created_at": "2017-09-26 02:42:57",
+                "updated_at": "2017-09-26 02:45:57"
+        }
+
+        // figure out how to hard code multiple objects for testing
+        // ask back end to seed this data for testing
+
+        // [
+        //     {
+        //         "id": 17,
+        //         "title": "next week",
+        //         "contents": "seed text",
+        //         "user_id": 7,
+        //         "created_at": "2017-09-26 02:42:57",
+        //         "updated_at": "2017-09-26 02:45:57"
+        //     },
+        //     {
+        //         "id": 18,
+        //         "title": "next week",
+        //         "contents": "seed text",
+        //         "user_id": 7,
+        //         "created_at": "2017-09-26 02:42:57",
+        //         "updated_at": "2017-09-26 02:45:57"
+        //     }
+        // ]
+
+
+
+        setMasterEntries([...props.entries, user])
+        console.log('masterEntries', masterEntries)
     }, [])
-    
+
+    function tenYearFormat(event){
+        console.log('second master entries', masterEntries)
+        const tenYearEntries = masterEntries.filter((entry) => {
+            let formattedDate = entry.created_at.split(" ")
+            let splitYearMonthDay = formattedDate[0].split("-")
+            // step 1 pull out month and day of the entry
+
+            let MonthAndDay = splitYearMonthDay[1] + '-' + splitYearMonthDay[2]
+
+            // step 1.5 pull out year entry 
+
+            let year = splitYearMonthDay[0]
+
+            // step 2 pull out the month and day of date picked
+
+            let datePicked = event.target.value.split("-")
+            let MonthAndDayDatePicked = datePicked[1] + "-" + datePicked[2]
+
+            // step 3 pull out year of date picked
+
+            let yearDatePicked = datePicked[0]
+
+            // step 4 subtract year of date picked by 10
+
+            yearDatePicked -= 10
+
+            // step 5 month and day of entry == month and day of date picked
+            return MonthAndDay == MonthAndDayDatePicked && year >= yearDatePicked
+
+
+            // step 6 year of entry >= year from step 4
+            // return back into the tenYearEntries
+            console.log('formatted date', formattedDate)
+            // return formattedDate[0] == event.target.value 
+        })
+       props.setEntries(tenYearEntries) 
+    }
+
     
     return (
         <ContainerDiv>
@@ -36,12 +101,15 @@ export default function TenYear(props) {
             <img src={TenYearImg} alt='tenyearimg' />
             <div className="btn-row">
                 <h1>Ten Year Page</h1>
-                <DatePickerComponent />
-                <NavLink to='/recent'><button>Back</button></NavLink>
+                {/* <DatePickerComponent /> */}
+                <input onChange={tenYearFormat} type={"date"}/>
+                <NavLink to='/recent'>
+                    <button>Back</button>
+                </NavLink>
             </div>
             
-            {entries.map((entry, index) =>{
-                return <Entry {...props} entry={entry} index={index} key={index} />
+            {props.entries.map((entry, index) =>{
+                return <Entry {...props} setEntries={props.setEntries} entries={props.entries} entry={entry} index={index} key={index} />
             })}
 
         </ContainerDiv>

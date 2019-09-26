@@ -37,6 +37,7 @@ const EntryForm = (props) => {
                     <Field component="textarea" name="contents" placeholder="Enter something about your day here" />
                     
                     <Field type="hidden" name="id" />
+                    <Field type="hidden" name="created_at" />
 
                     {/* Submit button -> Hook up to the backend and also route to
                     recent page after data from entry is saved to backend */}
@@ -52,7 +53,8 @@ export default withRouter(withFormik({
         return {
             title: values.title || '',
             contents: values.contents || '',
-            id: values.id || ''
+            id: values.id || '',
+            created_at: values.created_at || ''
         }
     },
 
