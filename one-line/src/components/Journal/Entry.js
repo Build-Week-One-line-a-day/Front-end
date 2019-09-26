@@ -26,10 +26,15 @@ export default function Entry(props) {
         })
     }
 
+    const longDate = props.entry.created_at.split(" ")
+    const shortDate = longDate[0];
+    const monthDay = shortDate.split("-")
+    const newDate = monthDay[1] + "-" + monthDay[2]  
+
     return (
         <ContainerDiv>
-            <NavLink to={`/edit/${index}`}>
-                <button>{props.entry.created_at}</button>
+            <NavLink to={`/edit/${props.entry.id}`}>
+                <button>{newDate}</button>
             </NavLink>
             <div className="text-content">
                 <div className="text-content-title">
@@ -76,8 +81,6 @@ const ContainerDiv = styled.div`
         font-size: .9rem;
         margin-top: 20px;
         margin-left: 20%;
-
-        
     }
     a button:hover{
         transition: all 150ms linear;
@@ -94,11 +97,27 @@ const ContainerDiv = styled.div`
 
         .text-content-title{
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            justify-content: flex-start;
+            align-content: center;
             button{
-                border: 1px solid red;
+                color: #fff;
+                background: #cf0732;
+                padding: 6px 6px;
+                cursor: pointer;
+                border: 0 none;
+                border-radius: 3px;
+                text-transform: uppercase;
+                font-weight: bold;
+                height: 30px;
+                width: 100%;
+                font-size: .9rem;
+                margin-top: 20px;
+                margin-left: 20%;
             } 
+            a button:hover{
+                transition: all 150ms linear;
+                opacity: .85;
+            }
         }   
     }
 
