@@ -29,12 +29,13 @@ export default function Entry(props) {
     const longDate = props.entry.created_at.split(" ")
     const shortDate = longDate[0];
     const monthDay = shortDate.split("-")
-    const newDate = monthDay[1] + "-" + monthDay[2]  
+    const newDate = monthDay[1] + "-" + monthDay[2]
+    
 
     return (
         <ContainerDiv>
-            <NavLink to={`/edit/${props.entry.id}`}>
-                <button>{newDate}</button>
+            <NavLink>
+            <button>{newDate}</button>
             </NavLink>
             <div className="text-content">
                 <div className="text-content-title">

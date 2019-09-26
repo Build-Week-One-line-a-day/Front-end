@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import HomeImage from '../../img/HomeImage.svg';
 
 const UserForm = ({status, setId, setWelcome}) => {
-    console.log("status", status)
+    // console.log("status", status)
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
@@ -41,11 +41,11 @@ export default withRouter(withFormik({
     },
 
     handleSubmit: (values, formikBag) => {
-        console.log("Values", values);
-        console.log('formikBag', formikBag)
+        // console.log("Values", values);
+        // console.log('formikBag', formikBag)
         axios.post('https://bw-one-line-a-day.herokuapp.com/api/auth/login', values)
           .then((res) => {
-            console.log('login res', res)
+            // console.log('login res', res)
             formikBag.props.setId(res.data.user.id)
             formikBag.props.setWelcome(res.data.message)
             localStorage.setItem('token', res.data.token)
