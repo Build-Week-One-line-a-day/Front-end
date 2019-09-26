@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useEffect} from 'react'
 import axios from 'axios'
 import {NavLink} from 'react-router-dom'
 import styled from 'styled-components'
@@ -7,28 +7,21 @@ import Entry from './Entry'
 
 export default function RecentEntries(props) {
     console.log('recent entries props', props)
-    
-
-    const [entries, setEntries] = useState([])
-    
-    
+   
 
     useEffect(()=>{
-        console.log('recent entries props', props)
+        // console.log('recent entries props', props)
         // Make a request for a user with a given ID
         axios.get(`https://bw-one-line-a-day.herokuapp.com/api/users/${props.id}/posts`)
         .then(function (response) {
         // handle success
         console.log(response.data);
-        setEntries(response.data)
+        props.setEntries(response.data)
     })
         .catch(function (error) {
         // handle error
         console.log(error);
     })
-        .finally(function () {
-        // always executed
-    });
     return () => {
         console.log('clean up')
     }
@@ -37,16 +30,18 @@ export default function RecentEntries(props) {
     return (
         <ContainerDiv>
             <h1>One Line A Day Journal</h1>
-            <img alt='notes' src={notesImage} alt='notes'/>
+            <img alt='notes' src={notesImage} />
             <div className="btn-row">
             <h1>Recent Entries</h1>
                 <NavLink to='/create'><button>Add New</button></NavLink>
-                <NavLink to='/full'><button>Ten Year View</button></NavLink>
+                <NavLink to='/full' >
+                    <button>Ten Year View</button>
+                </NavLink>
             </div>
            
             
-            {entries.map((entry, index) =>{
-               return <Entry {...props} setEntries={setEntries} entries={entries} entry={entry} index={index} key={index}/>
+            {props.entries.map((entry, index) =>{
+               return <Entry {...props} setEntries={props.setEntries} entries={props.entries} entry={entry} index={index} key={index}/>
             })}
         </ContainerDiv>
     )

@@ -20,7 +20,7 @@ const UserForm = ({status, setId}) => {
             <h1>One Line A Day Journal</h1>
             <Form>
                 <div className="img-and-form">
-                    <img width={600} src={HomeImage} />
+                    <img width={600} src={HomeImage} alt="Girl pointing to phone" />
                     <div className="form-content">
                         <Field type="text" name="username" placeholder="Username" />
                         <Field type="password" name="password" placeholder="Password" />
@@ -47,6 +47,7 @@ export default withRouter(withFormik({
           .then((res) => {
             console.log('login res', res)
             formikBag.props.setId(res.data.user.id)
+            // formikBag.props.setWelcome(res.data.welcome)
             localStorage.setItem('token', res.data.token)
             formikBag.props.history.push('/recent')
           })

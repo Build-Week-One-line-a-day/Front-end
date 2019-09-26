@@ -12,18 +12,19 @@ import EditEntry from './components/Journal/EditEntry';
 
 function App() {
   const [id, setId] = useState()
-  
+  const [entries, setEntries] = useState([])
+  const [welcome, setWelcome] = useState('')
   console.log('id', id)
   
   return (
     <div className="App">
       <Route exact path='/' component={LoginSignup}/>
       <Route path='/user-register'  render={(props) => <UserRegister {...props} setId={setId} />} />
-      <Route path='/recent' render={(props) => <RecentEntries {...props} id={id}/>}/>
-      <Route path='/create' render={(props) => <EntryForm {...props} id={id}/>}/>
+      <Route path='/recent' render={(props) => <RecentEntries {...props} id={id} setEntries={setEntries} entries={entries} />}/>
+      <Route path='/create' render={(props) => <EntryForm {...props} id={id}/> }/>
       <Route path='/edit/:id' render={(props) => <EditEntry {...props} id={id} />} />
-      <Route path='/full' render={(props) => <TenYear {...props} id={id}/>}/>
-      <Route path='/user-login'  render={(props) => <UserLogin {...props} setId={setId} />}/>
+  <Route path='/full' render={(props) => <TenYear {...props} id={id} setEntries={setEntries} entries={entries} />}/>
+      <Route path='/user-login'  render={(props) => <UserLogin {...props} setId={setId} welcome={welcome} setWelcome={setWelcome} />}/>
   
       {/* <Route path='/users/:id' component={Profile}/> stretch goal*/} 
     </div>
