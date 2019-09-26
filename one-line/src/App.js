@@ -9,15 +9,22 @@ import {Route} from 'react-router-dom'
 import UserRegister from './components/User/UserRegister';
 import UserLogin from './components/User/UserLogin';
 import EditEntry from './components/Journal/EditEntry';
+import Welcome from './components/User/Welcome';
+
+
 
 function App() {
   const [id, setId] = useState()
   const [entries, setEntries] = useState([])
   const [welcome, setWelcome] = useState('')
   console.log('id', id)
+  console.log('welcome', welcome)
+
+
   
   return (
     <div className="App">
+      <Welcome welcome={welcome} setWelcome={setWelcome}/>
       <Route exact path='/' component={LoginSignup}/>
       <Route path='/user-register'  render={(props) => <UserRegister {...props} setId={setId} />} />
       <Route path='/recent' render={(props) => <RecentEntries {...props} id={id} setEntries={setEntries} entries={entries} />}/>
