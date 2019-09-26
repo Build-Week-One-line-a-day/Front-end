@@ -5,7 +5,7 @@ import {withRouter} from 'react-router-dom';
 import styled from 'styled-components';
 import HomeImage from '../../img/HomeImage.svg';
 
-const UserForm = ({status, setId}) => {
+const UserForm = ({status, setId, setWelcome}) => {
     // console.log("status", status)
     const [users, setUsers] = useState([]);
 
@@ -47,7 +47,7 @@ export default withRouter(withFormik({
           .then((res) => {
             // console.log('login res', res)
             formikBag.props.setId(res.data.user.id)
-            // formikBag.props.setWelcome(res.data.welcome)
+            formikBag.props.setWelcome(res.data.message)
             localStorage.setItem('token', res.data.token)
             formikBag.props.history.push('/recent')
           })
