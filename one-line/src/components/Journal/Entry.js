@@ -34,7 +34,7 @@ export default function Entry(props) {
             <div className="text-content">
                 <div className="text-content-title">
                     <h2>{props.entry.title}</h2>
-                    <NavLink to={{pathname: `/edit/${props.entry.id}`, state: {title: props.entry.title, contents: props.entry.contents} }} >
+                    <NavLink to={{pathname: `/edit/${props.entry.id}`, state: {title: props.entry.title, contents: props.entry.contents, created_at: props.entry.created_at} }} >
                         <button>edit</button>
                     </NavLink>    
                     <button onClick={deletePost}>trash</button>

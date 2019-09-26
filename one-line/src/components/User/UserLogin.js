@@ -47,6 +47,7 @@ export default withRouter(withFormik({
           .then((res) => {
             console.log('login res', res)
             formikBag.props.setId(res.data.user.id)
+            // formikBag.props.setWelcome(res.data.welcome)
             localStorage.setItem('token', res.data.token)
             formikBag.props.history.push('/recent')
           })

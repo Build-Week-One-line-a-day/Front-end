@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import DatePickerComponent from './DatePickerComponent';
+import React, { useState, useEffect} from 'react';
+// import axios from 'axios';
+// import DatePickerComponent from './DatePickerComponent';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import TenYearImg from '../../img/TenYear.svg';
@@ -12,23 +12,27 @@ import Entry from './Entry';
 export default function TenYear(props) {
     console.log('Ten Year Props', props)
     
-    const [entries, setEntries] = useState([])
-    
-    useEffect(() => {
-        // console.log('TenYear useEffect props', props)
+    const [date, setDate] = useState('');
+    // const [entries, setEntries] = useState([])
+    const [masterEntries, setMasterEntries] = useState();
 
-        axios.get(`https://bw-one-line-a-day.herokuapp.com/api/users/${props.id}/posts`)
-        .then((res) => {
-            setEntries(res.data)
+    // let masterEntries;
+
+    useEffect(() => {
+        setMasterEntries(props.entries)
+        console.log('masterEntries', masterEntries)
+    }, [])
+
+    function tenYearFormat(event){
+        console.log('second master entries', masterEntries)
+        const tenYearEntries = masterEntries.filter((entry) => {
+            let formattedDate = entry.created_at.split(" ")
+            console.log('formatted date', formattedDate)
+            return formattedDate[0] == event.target.value 
         })
-        .catch((err) => {
-            console.log('Error', err)
-        })
-        return () => {
-            console.log('clean up')
-        }
-    }, [props.id])
-    
+       props.setEntries(tenYearEntries) 
+    }
+
     
     return (
         <ContainerDiv>
@@ -36,12 +40,15 @@ export default function TenYear(props) {
             <img src={TenYearImg} alt='tenyearimg' />
             <div className="btn-row">
                 <h1>Ten Year Page</h1>
-                <DatePickerComponent />
-                <NavLink to='/recent'><button>Back</button></NavLink>
+                {/* <DatePickerComponent /> */}
+                <input onChange={tenYearFormat} type={"date"}/>
+                <NavLink to='/recent'>
+                    <button>Back</button>
+                </NavLink>
             </div>
             
-            {entries.map((entry, index) =>{
-                return <Entry {...props} setEntries={setEntries} entries={entries} entry={entry} index={index} key={index} />
+            {props.entries.map((entry, index) =>{
+                return <Entry {...props} setEntries={props.setEntries} entries={props.entries} entry={entry} index={index} key={index} />
             })}
 
         </ContainerDiv>
