@@ -14,7 +14,7 @@ export default function RecentEntries(props) {
     
 
     useEffect(()=>{
-        console.log('recent entries props', props)
+        // console.log('recent entries props', props)
         // Make a request for a user with a given ID
         axios.get(`https://bw-one-line-a-day.herokuapp.com/api/users/${props.id}/posts`)
         .then(function (response) {
@@ -26,18 +26,15 @@ export default function RecentEntries(props) {
         // handle error
         console.log(error);
     })
-        .finally(function () {
-        // always executed
-    });
     return () => {
         console.log('clean up')
     }
-    },[])
+    },[props])
 
     return (
         <ContainerDiv>
             <h1>One Line A Day Journal</h1>
-            <img alt='notes' src={notesImage} alt='notes'/>
+            <img alt='notes' src={notesImage} />
             <div className="btn-row">
             <h1>Recent Entries</h1>
                 <NavLink to='/create'><button>Add New</button></NavLink>

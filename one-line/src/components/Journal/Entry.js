@@ -15,7 +15,7 @@ export default function Entry(props) {
         .then(function (response) {
         // handle success
         
-        const updatedEntries = props.entries.filter((entry) => entry.id != props.entry.id)
+        const updatedEntries = props.entries.filter((entry) => entry.id !== props.entry.id)
         props.setEntries(updatedEntries)
         console.log(response);
         props.history.push('/recent')

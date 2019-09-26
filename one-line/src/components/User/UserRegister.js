@@ -20,7 +20,7 @@ const UserForm = ({status, setId}) => {
             <h1>One Line A Day Journal</h1>
             <Form>
                 <div className="img-and-form">
-                    <img width={600} src={HomeImage}/>
+                    <img width={600} src={HomeImage} alt="Girl pointing to phone"/>
                     <div className="form-content">
                         <Field type="text" name="username" placeholder="Username" />
                         <Field type="password" name="password" placeholder="Password" />

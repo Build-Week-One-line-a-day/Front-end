@@ -15,7 +15,7 @@ export default function TenYear(props) {
     const [entries, setEntries] = useState([])
     
     useEffect(() => {
-        console.log('TenYear useEffect props', props)
+        // console.log('TenYear useEffect props', props)
 
         axios.get(`https://bw-one-line-a-day.herokuapp.com/api/users/${props.id}/posts`)
         .then((res) => {
@@ -24,10 +24,10 @@ export default function TenYear(props) {
         .catch((err) => {
             console.log('Error', err)
         })
-        .finally(() => {
-            //always executed
-        })
-    }, [])
+        return () => {
+            console.log('clean up')
+        }
+    }, [props.id])
     
     
     return (
@@ -41,7 +41,7 @@ export default function TenYear(props) {
             </div>
             
             {entries.map((entry, index) =>{
-                return <Entry {...props} entry={entry} index={index} key={index} />
+                return <Entry {...props} setEntries={setEntries} entries={entries} entry={entry} index={index} key={index} />
             })}
 
         </ContainerDiv>
