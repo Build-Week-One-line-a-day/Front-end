@@ -30,7 +30,7 @@ export default function RecentEntries(props) {
     return (
         <>
             <ContainerDiv>
-                <h1>One Line A Day Journal</h1>
+                <h1><span className="yellow">One Line A Day</span><span className="blue"> Journal</span></h1>
                 <img alt='notes' src={notesImage} />
                 <div className="btn-row">
                 <h1>Recent Entries</h1>
@@ -83,6 +83,12 @@ const ContainerDiv = styled.div`
         font-family: 'Amatic SC',cursive;
         font-size: 3rem;
         margin-bottom: 0;
+        .yellow{
+            color: #ebbd36
+        }
+        .blue{
+            color: #47cbe6;
+        }
     }
 
     .btn-row {
