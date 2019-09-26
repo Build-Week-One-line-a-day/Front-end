@@ -7,40 +7,26 @@ import styled from 'styled-components';
 
 
 const EntryForm = (props) => {
-    console.log('props - entry form', props)
-    console.log('id prop', props.id)
-    // we will need the useState to set up the backend
-    // const [entry, setEntry] = useState({
-    //     entry: '',
-    //     title: ''
-    // });
+    // console.log('props - entry form', props)
+    // console.log('id prop', props.id)
+    
     
     return (
         <ContainerDiv>
             <Form>
                 <h1>One Line A Day Journal</h1>
-                {/* The date field below will be hooked up to the backend api
-                to display the current date/attach it to the timestamp of the post.
-                
-                It may change slightly depending on how the backend turns out.*/}
-
-                
-
+       
                 <h2>09/20/2019</h2>
                 <div className="form-content">
-                    {/* Entry Title -> This will be hooked up to the backend
-                    api when we get access to it. */}
+                    
                     <Field type="text" name="title" placeholder="Entry Title" />
 
-                    {/* Entry Content -> This will be hooked up to the backend
-                    api when we get access to it. */}
+                    
                     <Field component="textarea" name="contents" placeholder="Enter something about your day here" />
                     
                     <Field type="hidden" name="id" />
                     <Field type="hidden" name="created_at" />
 
-                    {/* Submit button -> Hook up to the backend and also route to
-                    recent page after data from entry is saved to backend */}
                     <button type="submit">Save Entry</button>
                 </div>
             </Form>
@@ -58,8 +44,6 @@ export default withRouter(withFormik({
         }
     },
 
-    // Once we have backend api we can hook 
-    // that up below with the axios request
 
     handleSubmit: (values, formikBag) => {
         console.log("Values", values);
@@ -67,9 +51,6 @@ export default withRouter(withFormik({
         const {id, ...rest} = values;
         axios.post(`https://bw-one-line-a-day.herokuapp.com/api/users/${id}/posts`, rest)
           .then((res) => {
-            // setEntry(res.data)
-                // the .then will route the save button to the 
-                // recent page after saving entry to backend
                 formikBag.props.history.push('/recent')
                 console.log(formikBag)
           })
@@ -124,7 +105,7 @@ const ContainerDiv = styled.div`
         button{
             width: 100%;
             color: #fff;
-            background-color:#ba2545;
+            background-color:#47CBE6;
             margin: 10px;
             padding: 12px 12px;
             cursor: pointer;
