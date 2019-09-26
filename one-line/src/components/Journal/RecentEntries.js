@@ -29,6 +29,9 @@ export default function RecentEntries(props) {
         .finally(function () {
         // always executed
     });
+    return () => {
+        console.log('clean up')
+    }
     },[])
 
     return (
@@ -43,7 +46,7 @@ export default function RecentEntries(props) {
            
             
             {entries.map((entry, index) =>{
-               return <Entry {...props} setEntries={setEntries} entry={entry} index={index} key={index}/>
+               return <Entry {...props} setEntries={setEntries} entries={entries} entry={entry} index={index} key={index}/>
             })}
         </ContainerDiv>
     )

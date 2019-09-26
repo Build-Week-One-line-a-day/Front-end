@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { withFormik, Form, Field } from 'formik';
 import { withRouter } from 'react-router-dom';
@@ -6,14 +6,10 @@ import styled from 'styled-components';
 
 
 
-const EntryForm = (props) => {
-    console.log('props - entry form', props)
-    console.log('id prop', props.id)
-    // we will need the useState to set up the backend
-    // const [entry, setEntry] = useState({
-    //     entry: '',
-    //     title: ''
-    // });
+const EditEntry = (props) => {
+    console.log('props - edit entry form', props)
+    console.log('edit entry id prop', props.id)
+    
     
     return (
         <ContainerDiv>
@@ -30,11 +26,11 @@ const EntryForm = (props) => {
                 <div className="form-content">
                     {/* Entry Title -> This will be hooked up to the backend
                     api when we get access to it. */}
-                    <Field type="text" name="title" placeholder="Entry Title" />
+                    <Field type="text" value={props.values.title} name="title" placeholder="Entry Title" />
 
                     {/* Entry Content -> This will be hooked up to the backend
                     api when we get access to it. */}
-                    <Field component="textarea" name="contents" placeholder="Enter something about your day here" />
+                    <Field component="textarea" value={props.values.contents} name="contents" placeholder="Enter something about your day here" />
                     
                     <Field type="hidden" name="id" />
 
@@ -48,23 +44,34 @@ const EntryForm = (props) => {
 }
 
 export default withRouter(withFormik({
-    mapPropsToValues: (values) => {
+    mapPropsToValues: (values, formikBag) => {
+        console.log('props to values', values)
+        // console.log('formik props', props)
+        console.log('Edit entry formikBag', formikBag)
         return {
-            title: values.title || '',
-            contents: values.contents || '',
-            id: values.id || ''
+            title: values.location.state.title || ``,
+            contents: values.location.state.contents || '',
+            id: values.location.state.id || ''
         }
     },
 
-    // Once we have backend api we can hook 
-    // that up below with the axios request
+    // handleChange = (evt) => {
+    //     evt.preventDefault()
+    //     this.setState({
+    //         [evt.target.name]: evt.target.value,
+    //     })
+    // },
 
     handleSubmit: (values, formikBag) => {
         console.log("Values", values);
         console.log('formikBag', formikBag)
-        const {id, ...rest} = values;
-        axios.post(`https://bw-one-line-a-day.herokuapp.com/api/users/${id}/posts`, rest)
+        const id = formikBag.props.match.params.id
+        console.log('formikBag props location state', id)
+        const updatedEntry = {title: values.title, contents: values.contents}
+        // const {id, ...rest} = values.location.state;
+        axios.put(`https://bw-one-line-a-day.herokuapp.com/api/users/posts/${id}`, updatedEntry)
           .then((res) => {
+              console.log('Edit Entry res', res)
             // setEntry(res.data)
                 // the .then will route the save button to the 
                 // recent page after saving entry to backend
@@ -76,8 +83,7 @@ export default withRouter(withFormik({
           })
       }
 
-})(EntryForm))
-
+})(EditEntry))
 
 
 

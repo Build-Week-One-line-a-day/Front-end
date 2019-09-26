@@ -6,13 +6,17 @@ import axios from 'axios';
 export default function Entry(props) {
     console.log("entry props", props)
     const index = props.index;
-
+    
+    
 
     const deletePost = () => {
         // Make a request for a user with a given ID
         axios.delete(`https://bw-one-line-a-day.herokuapp.com/api/users/posts/${props.entry.id}`)
         .then(function (response) {
         // handle success
+        
+        const updatedEntries = props.entries.filter((entry) => entry.id != props.entry.id)
+        props.setEntries(updatedEntries)
         console.log(response);
         props.history.push('/recent')
         })
@@ -30,6 +34,9 @@ export default function Entry(props) {
             <div className="text-content">
                 <div className="text-content-title">
                     <h2>{props.entry.title}</h2>
+                    <NavLink to={{pathname: `/edit/${props.entry.id}`, state: {title: props.entry.title, contents: props.entry.contents} }} >
+                        <button>edit</button>
+                    </NavLink>    
                     <button onClick={deletePost}>trash</button>
                 </div>
                 

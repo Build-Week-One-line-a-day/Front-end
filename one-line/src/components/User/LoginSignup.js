@@ -8,7 +8,7 @@ export default function LoginSignup() {
         <ContainerDiv>
             <h1>One Line A Day Journal</h1>
             <div className="button-img-container">
-            <img width={600} src={HomeImage}/>
+            <img width={600} src={HomeImage} alt="Girl pointing to phone" />
             <div className="button-section">
                 <NavLink to='user-register'><button>Sign Up</button></NavLink>
                 <NavLink to='user-login'><button>Log In</button></NavLink>

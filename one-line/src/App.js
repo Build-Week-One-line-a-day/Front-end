@@ -8,9 +8,11 @@ import RecentEntries from './components/Journal/RecentEntries';
 import {Route} from 'react-router-dom'
 import UserRegister from './components/User/UserRegister';
 import UserLogin from './components/User/UserLogin';
+import EditEntry from './components/Journal/EditEntry';
 
 function App() {
   const [id, setId] = useState()
+  
   console.log('id', id)
   
   return (
@@ -19,7 +21,7 @@ function App() {
       <Route path='/user-register'  render={(props) => <UserRegister {...props} setId={setId} />} />
       <Route path='/recent' render={(props) => <RecentEntries {...props} id={id}/>}/>
       <Route path='/create' render={(props) => <EntryForm {...props} id={id}/>}/>
-      <Route path='/edit/:id' component={EntryForm}/>
+      <Route path='/edit/:id' render={(props) => <EditEntry {...props} id={id} />} />
       <Route path='/full' render={(props) => <TenYear {...props} id={id}/>}/>
       <Route path='/user-login'  render={(props) => <UserLogin {...props} setId={setId} />}/>
   
