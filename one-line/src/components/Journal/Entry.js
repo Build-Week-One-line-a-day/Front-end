@@ -26,10 +26,12 @@ export default function Entry(props) {
         })
     }
 
+    
+
     return (
         <ContainerDiv>
-            <NavLink to={`/edit/${index}`}>
-                <button>{props.entry.created_at}</button>
+            <NavLink>
+            <button>{props.entry.created_at}</button>
             </NavLink>
             <div className="text-content">
                 <div className="text-content-title">

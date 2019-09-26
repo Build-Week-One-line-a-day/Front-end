@@ -3,7 +3,7 @@ import React, { useState, useEffect} from 'react';
 // import DatePickerComponent from './DatePickerComponent';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-import TenYearImg from '../../img/TenYear.svg';
+import TenYearImg from '../../img/yellowCalendar.svg';
 import Entry from './Entry';
 // import BeachImg from '../../img/Beach.svg';
 // import SunglassesImg from '../../img/Sunglasses.svg';
@@ -96,23 +96,28 @@ export default function TenYear(props) {
 
     
     return (
-        <ContainerDiv>
-            <h1>One Line A Day Journal</h1>
-            <img src={TenYearImg} alt='tenyearimg' />
-            <div className="btn-row">
-                <h1>Ten Year Page</h1>
-                {/* <DatePickerComponent /> */}
-                <input onChange={tenYearFormat} type={"date"}/>
-                <NavLink to='/recent'>
-                    <button>Back</button>
-                </NavLink>
-            </div>
-            
-            {props.entries.map((entry, index) =>{
-                return <Entry {...props} setEntries={props.setEntries} entries={props.entries} entry={entry} index={index} key={index} />
-            })}
+        <>
+            <ContainerDiv>
+                <h1>One Line A Day Journal</h1>
+                <img src={TenYearImg} alt='tenyearimg' />
+                <div className="btn-row">
+                    <h1>Ten Year Page</h1>
+                    {/* <DatePickerComponent /> */}
+                    <input onChange={tenYearFormat} type={"date"}/>
+                    <NavLink to='/recent'>
+                        <button>Back</button>
+                    </NavLink>
+                </div>
 
-        </ContainerDiv>
+            </ContainerDiv>
+
+            <PostContainer>
+                {props.entries.map((entry, index) =>{
+                    return <Entry {...props} setEntries={props.setEntries} entries={props.entries} entry={entry} index={index} key={index} />
+                })}
+            </PostContainer>
+
+        </>
     )
 }
 
@@ -121,9 +126,19 @@ const ContainerDiv = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0 2rem;
-    max-width: 800px;
     margin: 0 auto;
+
+    // styles below add pink background, 
+    // yellow border, and curved bottom edge
+
+    background: #cf0732;
+    background-image: url(https://www.transparenttextures.com/patterns/notebook.png);
+    border-bottom-left-radius: 55rem;
+    border-bottom-right-radius: 55rem;
+    border-bottom: 2px solid #edc71c;
+    width: 100%;
+
+
 
     @media only screen and (max-width: 600px) {
         padding: 0 .5rem;
@@ -141,14 +156,14 @@ const ContainerDiv = styled.div`
     }
 
     .btn-row {
-        width: 75%;
+        width: 35%;
         margin: 0 auto;
         display: flex;
         justify-content: space-between;
         align-items: center;
         button{
             color: #fff;
-            background-color: #ba2545;
+            background-color: #47CBE6;
             padding: 12px 12px;
             cursor: pointer;
             border: 0 none;
@@ -172,4 +187,14 @@ const ContainerDiv = styled.div`
             font-family: 'Amatic SC',cursive;
         }
     }
+`
+
+// splitting the two containers allows the entries to
+// display on the grey background and not on the pink
+// background and also prevents the pink background from
+// stretching longer and longer for each new post that is
+// added to the list
+const PostContainer = styled.div`
+    width: 75%;
+    margin: 0 auto;
 `

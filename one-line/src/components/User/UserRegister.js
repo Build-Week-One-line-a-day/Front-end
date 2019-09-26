@@ -41,11 +41,11 @@ export default withRouter(withFormik({
     },
 
     handleSubmit: (values, formikBag) => {
-        console.log("Values", values);
-        console.log('formikBag', formikBag)
+        // console.log("Values", values);
+        // console.log('formikBag', formikBag)
         axios.post('https://bw-one-line-a-day.herokuapp.com/api/auth/register', values)
           .then((res) => {
-            console.log('register res', res)
+            // console.log('register res', res)
             formikBag.props.setId(res.data.user.id)
             localStorage.setItem('token', res.data.token)
             formikBag.props.history.push('/recent')
