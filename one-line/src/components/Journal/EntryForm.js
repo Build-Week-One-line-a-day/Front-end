@@ -35,7 +35,7 @@ const EntryForm = (props) => {
             <Form>
                 <h1>One Line A Day Journal</h1>
        
-                <h2>{quote.quote}</h2>
+                <h3>{quote.quote}</h3>
                 <h3>{quote.author}</h3>
                 <div className="form-content">
                     
@@ -89,6 +89,11 @@ const ContainerDiv = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    form{
+        width: 800px;
+        max-width: 80%;
+    }
 
     h1 {
         font-size: 3rem;

@@ -42,15 +42,15 @@ export default function Entry(props) {
         <>
         <Card >
             <div className="row">
-            <div className="col-sm-3 text-left">
-                <Button >{newDate}</Button>
+            <div className="col-sm-3 text-left buttonContainer">
+                <Button outline size='sm' color='success'>{newDate}</Button>
                 
                 <div className="editAndDelete">
                     <NavLink to={{pathname: `/edit/${props.entry.id}`, state: {title: props.entry.title, contents: props.entry.contents, created_at: props.entry.created_at} }} >
-                        <Button>edit</Button>
+                        <Button outline color='warning' size='sm'>edit</Button>
                     </NavLink>    
                         
-                    <Button onClick={deletePost}><img width={20} src={Trash} alt="trash can" /></Button>
+                    <Button outline onClick={deletePost} color="danger" size="sm"><img width={16} src={Trash} alt="trash can" /></Button>
                 </div>
             </div>
             

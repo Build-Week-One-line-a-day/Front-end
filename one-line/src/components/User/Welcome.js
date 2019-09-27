@@ -1,31 +1,25 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from 'styled-components'
+import { Alert } from 'reactstrap';
 
 export default function Welcome(props) {
 
+  const [visible, setVisibile] = useState(true)
+
+  console.log('visible',visible)
     function myFunction() {
         setTimeout(function(){
-             props.setWelcome('') 
-            }, 5000);
+             setVisibile(false); 
+            }, 3000);
       }
     myFunction()  
 
 
     return (
-        <ContainerDiv>
-          <h1>{props.welcome}</h1>  
-        </ContainerDiv>
+        <>
+           <Alert color="primary" isOpen={visible}>{props.welcome}</Alert>
+        </>
     )
 }
 
-const ContainerDiv = styled.div`
-position: absolute !important;
-margin: 0;
- h1{
-   background: #fff;
-   border-radius: 5px;
-   width: 100vw;   
-   padding: 5px;
-   margin: 0 auto;
- }
-`
+

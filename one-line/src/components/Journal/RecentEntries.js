@@ -94,6 +94,7 @@ const ContainerDiv = styled.div`
     .btn-row {
         width: 45%;
         margin: 0 auto;
+        margin-bottom: 2rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
