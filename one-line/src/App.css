@@ -51,3 +51,6 @@ html, body{
 /* .buttonContainer .editAndDelete{
   padding: 0 1rem;
 } */
+.card{
+  margin-top: .25rem;
+}

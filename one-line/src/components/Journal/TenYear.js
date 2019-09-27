@@ -1,12 +1,8 @@
 import React, { useState, useEffect} from 'react';
-// import axios from 'axios';
-// import DatePickerComponent from './DatePickerComponent';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import TenYearImg from '../../img/yellowCalendar.svg';
 import Entry from './Entry';
-// import BeachImg from '../../img/Beach.svg';
-// import SunglassesImg from '../../img/Sunglasses.svg';
 
 
 export default function TenYear(props) {
@@ -98,7 +94,7 @@ export default function TenYear(props) {
     return (
         <>
             <ContainerDiv>
-                <h1>One Line A Day Journal</h1>
+                <h1><span className="yellow">One Line A Day</span><span className="blue"> Journal</span></h1>
                 <img src={TenYearImg} alt='tenyearimg' />
                 <div className="btn-row">
                     <h1>Ten Year Page</h1>
@@ -153,6 +149,12 @@ const ContainerDiv = styled.div`
         font-family: 'Amatic SC',cursive;
         font-size: 3rem;
         margin-bottom: 0;
+        .yellow{
+            color: #ebbd36
+        }
+        .blue{
+            color: #47cbe6;
+        }
     }
 
     .btn-row {
@@ -161,6 +163,7 @@ const ContainerDiv = styled.div`
         display: flex;
         justify-content: space-between;
         align-items: center;
+        margin-bottom: 2rem;
         button{
             color: #fff;
             background-color: #47CBE6;
@@ -197,4 +200,5 @@ const ContainerDiv = styled.div`
 const PostContainer = styled.div`
     width: 75%;
     margin: 0 auto;
+    margin-top: 1rem;
 `

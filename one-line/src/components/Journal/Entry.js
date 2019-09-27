@@ -40,7 +40,7 @@ export default function Entry(props) {
 
     return (
         <>
-        <Card >
+        <Card className="card">
             <div className="row">
             <div className="col-sm-3 text-left buttonContainer">
                 <Button outline size='sm' color='success'>{newDate}</Button>

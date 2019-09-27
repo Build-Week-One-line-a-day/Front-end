@@ -136,4 +136,5 @@ const ContainerDiv = styled.div`
 const PostContainer = styled.div`
     width: 75%;
     margin: 0 auto;
+    margin-top: 1rem;
 `
