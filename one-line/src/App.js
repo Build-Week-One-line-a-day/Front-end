@@ -29,14 +29,13 @@ function App() {
   
   return (
     <div className="App">
-      <button onClick={notify}>get rid of button somehow</button>;
       <Route exact path='/' component={LoginSignup}/>
       <Route path='/user-register'  render={(props) => <UserRegister {...props} setId={setId} />} />
       <Route path='/recent' render={(props) => <RecentEntries {...props} id={id} setEntries={setEntries} entries={entries} />}/>
       <Route path='/create' render={(props) => <EntryForm {...props} id={id}/> }/>
       <Route path='/edit/:id' render={(props) => <EditEntry {...props} id={id} />} />
   <Route path='/full' render={(props) => <TenYear {...props} id={id} setEntries={setEntries} entries={entries} />}/>
-      <Route path='/user-login'  render={(props) => <UserLogin {...props} setId={setId} welcome={welcome} setWelcome={setWelcome} />}/>
+      <Route path='/user-login'  render={(props) => <UserLogin notify={notify} {...props} setId={setId} welcome={welcome} setWelcome={setWelcome} />}/>
   
       {/* <Route path='/users/:id' component={Profile}/> stretch goal*/} 
     </div>
