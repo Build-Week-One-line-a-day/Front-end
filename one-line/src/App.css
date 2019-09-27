@@ -42,5 +42,15 @@ html, body{
 }
 
 .editAndDelete {
-  margin-top: 5px;
+  margin-top: 25px;
+}
+
+.buttonContainer button{
+  margin: .25em .5rem;
+}
+/* .buttonContainer .editAndDelete{
+  padding: 0 1rem;
+} */
+.card{
+  margin-top: .25rem;
 }

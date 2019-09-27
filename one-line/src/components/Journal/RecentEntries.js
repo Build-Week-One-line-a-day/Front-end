@@ -33,7 +33,7 @@ export default function RecentEntries(props) {
                 <h1><span className="yellow">One Line A Day</span><span className="blue"> Journal</span></h1>
                 <img alt='notes' src={notesImage} />
                 <div className="btn-row">
-                <h1>Recent Entries</h1>
+                <h1><span class="yellow">Recent</span><span class="blue">Entries</span></h1>
                     <NavLink to='/create'><button>Add New</button></NavLink>
                     <NavLink to='/full' >
                         <button>Ten Year View</button>
@@ -94,9 +94,16 @@ const ContainerDiv = styled.div`
     .btn-row {
         width: 45%;
         margin: 0 auto;
+        margin-bottom: 2rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        .yellow{
+            color: #ebbd36
+        }
+        .blue{
+            color: #47cbe6;
+        }
         button{
             color: #fff;
             background-color: #47CBE6;
@@ -135,4 +142,5 @@ const ContainerDiv = styled.div`
 const PostContainer = styled.div`
     width: 75%;
     margin: 0 auto;
+    margin-top: 1rem;
 `
