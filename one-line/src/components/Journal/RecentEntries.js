@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react'
-import axios from 'axios'
+import {axiosWithAuth} from '../../utils/axiosWithAuth'
 import {NavLink} from 'react-router-dom'
 import styled from 'styled-components'
 import notesImage from '../../img/yellowNotes.svg'
@@ -12,7 +12,7 @@ export default function RecentEntries(props) {
     useEffect(()=>{
         // console.log('recent entries props', props)
         // Make a request for a user with a given ID
-        axios.get(`https://bw-one-line-a-day.herokuapp.com/api/users/${props.id}/posts`)
+        axiosWithAuth().get(`/users/${props.id}/posts`)
         .then(function (response) {
         // handle success
         console.log(response.data);

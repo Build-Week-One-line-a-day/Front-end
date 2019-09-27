@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios';
+import {axiosWithAuth} from '../../utils/axiosWithAuth';
 import { withFormik, Form, Field } from 'formik';
 import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
@@ -55,7 +55,7 @@ export default withRouter(withFormik({
         // console.log('formikBag props location state', id)
         const updatedEntry = {title: values.title, contents: values.contents}
         // const {id, ...rest} = values.location.state;
-        axios.put(`https://bw-one-line-a-day.herokuapp.com/api/users/posts/${id}`, updatedEntry)
+        axiosWithAuth().put(`/users/posts/${id}`, updatedEntry)
           .then((res) => {
             //   console.log('Edit Entry res', res)
                 formikBag.props.history.push('/recent')
