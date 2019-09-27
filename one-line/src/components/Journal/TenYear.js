@@ -97,7 +97,7 @@ export default function TenYear(props) {
                 <h1><span className="yellow">One Line A Day</span><span className="blue"> Journal</span></h1>
                 <img src={TenYearImg} alt='tenyearimg' />
                 <div className="btn-row">
-                    <h1>Ten Year Page</h1>
+                    <h1><span class="yellow">Ten Year</span> <span class="blue">Page</span></h1>
                     {/* <DatePickerComponent /> */}
                     <input onChange={tenYearFormat} type={"date"}/>
                     <NavLink to='/recent'>
@@ -164,6 +164,12 @@ const ContainerDiv = styled.div`
         justify-content: space-between;
         align-items: center;
         margin-bottom: 2rem;
+        .yellow{
+            color: #ebbd36
+        }
+        .blue{
+            color: #47cbe6;
+        }
         button{
             color: #fff;
             background-color: #47CBE6;
