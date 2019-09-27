@@ -1,22 +1,42 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+// import axiosWithAuth from '../../';
 import { withFormik, Form, Field } from 'formik';
 import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
+import { axiosWithAuth } from '../../utils/axiosWithAuth';
 
 
 
 const EntryForm = (props) => {
     // console.log('props - entry form', props)
     // console.log('id prop', props.id)
+
+    const [quote, setQuote] = useState('')
+
+    useEffect(() => {
+        axios.get("http://quotes.stormconsultancy.co.uk/random.json")
+            .then(response => {
+                console.log('random quote', response);
+                setQuote(response.data)
+            })
+            .catch(err => {
+                console.log(err);
+            });
+            return () => {
+                console.log('clean up')
+            }
+    },[])
     
+
     
     return (
         <ContainerDiv>
             <Form>
                 <h1>One Line A Day Journal</h1>
        
-                <h2>09/20/2019</h2>
+                <h2>{quote.quote}</h2>
+                <h3>{quote.author}</h3>
                 <div className="form-content">
                     
                     <Field type="text" name="title" placeholder="Entry Title" />
@@ -49,7 +69,7 @@ export default withRouter(withFormik({
         console.log("Values", values);
         console.log('formikBag', formikBag)
         const {id, ...rest} = values;
-        axios.post(`https://bw-one-line-a-day.herokuapp.com/api/users/${id}/posts`, rest)
+        axiosWithAuth().post(`/users/${id}/posts`, rest)
           .then((res) => {
                 formikBag.props.history.push('/recent')
                 console.log(formikBag)
