@@ -10,13 +10,18 @@ import UserRegister from './components/User/UserRegister';
 import UserLogin from './components/User/UserLogin';
 import EditEntry from './components/Journal/EditEntry';
 import Welcome from './components/User/Welcome';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
 function App() {
   const [id, setId] = useState()
   const [entries, setEntries] = useState([])
-  const [welcome, setWelcome] = useState('')
+  const [welcome, setWelcome] = useState('welcome')
+  toast.configure()
+  const notify = () => toast(welcome);
+
   console.log('id', id)
   console.log('welcome', welcome)
 
@@ -24,7 +29,7 @@ function App() {
   
   return (
     <div className="App">
-      <Welcome welcome={welcome} setWelcome={setWelcome}/>
+      <button onClick={notify}>get rid of button somehow</button>;
       <Route exact path='/' component={LoginSignup}/>
       <Route path='/user-register'  render={(props) => <UserRegister {...props} setId={setId} />} />
       <Route path='/recent' render={(props) => <RecentEntries {...props} id={id} setEntries={setEntries} entries={entries} />}/>
