@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
 import LoginSignup from './components/User/LoginSignup';
-// import Profile from './components/User/Profile';
 import EntryForm from './components/Journal/EntryForm';
 import TenYear from './components/Journal/TenYear';
 import RecentEntries from './components/Journal/RecentEntries';
@@ -9,7 +8,6 @@ import {Route} from 'react-router-dom'
 import UserRegister from './components/User/UserRegister';
 import UserLogin from './components/User/UserLogin';
 import EditEntry from './components/Journal/EditEntry';
-import Welcome from './components/User/Welcome';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -36,8 +34,6 @@ function App() {
       <Route path='/edit/:id' render={(props) => <EditEntry {...props} id={id} />} />
   <Route path='/full' render={(props) => <TenYear {...props} id={id} setEntries={setEntries} entries={entries} />}/>
       <Route path='/user-login'  render={(props) => <UserLogin notify={notify} {...props} setId={setId} welcome={welcome} setWelcome={setWelcome} />}/>
-  
-      {/* <Route path='/users/:id' component={Profile}/> stretch goal*/} 
     </div>
   );
 }
