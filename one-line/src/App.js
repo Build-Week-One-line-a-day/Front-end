@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import LoginSignup from './components/User/LoginSignup';
 import EntryForm from './components/Journal/EntryForm';
@@ -16,7 +16,12 @@ import 'react-toastify/dist/ReactToastify.css';
 function App() {
   const [id, setId] = useState()
   const [entries, setEntries] = useState([])
-  const [welcome, setWelcome] = useState('welcome')
+  const [welcome, setWelcome] = useState()
+  useEffect(()=>{
+    notify()
+  },[welcome])
+
+
   toast.configure()
   const notify = () => toast(welcome);
 
@@ -32,7 +37,7 @@ function App() {
       <Route path='/recent' render={(props) => <RecentEntries {...props} id={id} setEntries={setEntries} entries={entries} />}/>
       <Route path='/create' render={(props) => <EntryForm {...props} id={id}/> }/>
       <Route path='/edit/:id' render={(props) => <EditEntry {...props} id={id} />} />
-  <Route path='/full' render={(props) => <TenYear {...props} id={id} setEntries={setEntries} entries={entries} />}/>
+      <Route path='/full' render={(props) => <TenYear {...props} id={id} setEntries={setEntries} entries={entries} />}/>
       <Route path='/user-login'  render={(props) => <UserLogin notify={notify} {...props} setId={setId} welcome={welcome} setWelcome={setWelcome} />}/>
     </div>
   );
