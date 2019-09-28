@@ -44,11 +44,11 @@ export default function Entry(props) {
         <>
         <Card className="card">
             <div className="row">
-            <div className="col-sm-3 text-left buttonContainer">
-                <Button outline size='sm' color='info'>
+            <div className="col-sm-3  text-left buttonContainer">
+                
                     <span className="yellow">{newDate1}</span>
                     <span className="blue">{newDate2}</span>
-                </Button>
+                
                 
                 <div className="editAndDelete">
                     <NavLink to={{pathname: `/edit/${props.entry.id}`, state: {title: props.entry.title, contents: props.entry.contents, created_at: props.entry.created_at} }} >
@@ -60,12 +60,8 @@ export default function Entry(props) {
             </div>
             
             <CardBody className="col-sm-9 text-left">
-                
                 <CardTitle>{props.entry.title}</CardTitle>
-             
                 <CardText>{props.entry.contents}</CardText>
-                
-                
             </CardBody>
             </div>
         </Card>    
