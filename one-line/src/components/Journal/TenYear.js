@@ -207,4 +207,8 @@ const PostContainer = styled.div`
     width: 60%;
     margin: 0 auto;
     margin-top: 1rem;
+
+    @media only screen and (max-width: 600px) {
+        width: 90%;
+      }
 `

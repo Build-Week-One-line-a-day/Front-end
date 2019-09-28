@@ -47,10 +47,28 @@ html, body{
   margin-top: 20px;
 }
 
+@media  (max-width: 600px) {
+    .row {
+
+      margin: 0 auto;
+      flex-direction: row;
+    }
+
+    .buttonContainer {
+      flex-direction: row;
+      display: flex;
+      align-items: center;
+    }
+
+    .editAndDelete{
+      margin-top: 0px;
+    }
+
+}
+
 .buttonContainer button{
   margin: .5em .5rem;
 }
-
 
 /* .editAndDelete button .trash {
   fill: orange;
