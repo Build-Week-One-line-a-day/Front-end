@@ -98,18 +98,22 @@ const ContainerDiv = styled.div`
             position: absolute;
             top: 45vh;
             left: 60%;
-            width: 35vw%;
+            width: 35vw;
 
             @media only screen and (max-width: 600px) {
-                top: 30vh;
-                left: 68%;
-                width: 35vw;
+                flex-direction: row;
+                top: 35vh;
+                position: static;
+                width: 100%
+                justify-content: space-around;
             }
         
             input {
                 font-size: 1rem;
                 margin-bottom: 15px;
                 height: 30px;
+                padding: 1rem;
+                border: 0;
             }
 
             button {
@@ -119,7 +123,7 @@ const ContainerDiv = styled.div`
                 // font-family: 'Poiret One', cursive;
                 font-weight: 600;
                 font-size: 1.4rem;
-
+                border: 0;
                 @media only screen and (max-width: 600px) {
                     font-size: 1rem;
                     margin-top: -3px;
