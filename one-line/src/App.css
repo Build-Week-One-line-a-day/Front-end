@@ -47,6 +47,8 @@ html, body{
 
 .card {
 
+  margin-top: .25rem;
+  margin-bottom: 15px;
   border-radius: 42px;
   border: 3px solid #edc71c;
 
@@ -87,10 +89,7 @@ html, body{
 /* .buttonContainer .editAndDelete{
   padding: 0 1rem;
 } */
-.card{
-  margin-top: .25rem;
-  margin-bottom: 15px;
-}
+
 .yellow{
   color: #ebbd36
 }

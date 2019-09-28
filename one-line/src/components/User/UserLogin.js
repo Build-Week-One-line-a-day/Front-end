@@ -75,7 +75,7 @@ const ContainerDiv = styled.div`
     border-bottom: 2px solid #edc71c;
 
     h1 {
-        font-size: 3rem;
+        font-size: 5rem;
         .yellow{
             color: #ebbd36
         }

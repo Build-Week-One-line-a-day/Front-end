@@ -81,7 +81,7 @@ const ContainerDiv = styled.div`
     }
     h1{
         font-family: 'Amatic SC',cursive;
-        font-size: 3rem;
+        font-size: 5rem;
         margin-bottom: 0;
         .yellow{
             color: #ebbd36
@@ -126,7 +126,7 @@ const ContainerDiv = styled.div`
         }
 
         h1{
-            font-size: 2em;
+            font-size: 3em;
             font-family: 'Amatic SC',cursive;
         }
     }
