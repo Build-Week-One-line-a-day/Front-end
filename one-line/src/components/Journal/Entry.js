@@ -36,15 +36,19 @@ export default function Entry(props) {
     const longDate = props.entry.created_at.split(" ")
     const shortDate = longDate[0];
     const monthDay = shortDate.split("-")
-    const newDate = monthDay[1] + "-" + monthDay[2] + "-" + monthDay[0]
+    const newDate1 = monthDay[1] + "-" + monthDay[2]
+    const newDate2 = "-" + monthDay[0]
     
 
     return (
         <>
         <Card className="card">
             <div className="row">
-            <div className="col-sm-3 text-left buttonContainer">
-                <Button outline size='sm' color='info'>{newDate}</Button>
+            <div className="col-sm-3  text-left buttonContainer">
+                
+                    <span className="yellow">{newDate1}</span>
+                    <span className="blue">{newDate2}</span>
+                
                 
                 <div className="editAndDelete">
                     <NavLink to={{pathname: `/edit/${props.entry.id}`, state: {title: props.entry.title, contents: props.entry.contents, created_at: props.entry.created_at} }} >
@@ -56,12 +60,8 @@ export default function Entry(props) {
             </div>
             
             <CardBody className="col-sm-9 text-left">
-                
                 <CardTitle>{props.entry.title}</CardTitle>
-             
                 <CardText>{props.entry.contents}</CardText>
-                
-                
             </CardBody>
             </div>
         </Card>    

@@ -44,12 +44,13 @@ html, body{
 }
 
 .editAndDelete {
-  margin-top: 25px;
+  margin-top: 20px;
 }
 
 .buttonContainer button{
-  margin: .25em .5rem;
+  margin: .5em .5rem;
 }
+
 
 /* .editAndDelete button .trash {
   fill: orange;
@@ -60,4 +61,10 @@ html, body{
 } */
 .card{
   margin-top: .25rem;
+}
+.yellow{
+  color: #ebbd36
+}
+.blue{
+  color: #47cbe6;
 }
