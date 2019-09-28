@@ -133,6 +133,8 @@ const ContainerDiv = styled.div`
             height: 100px;
             border-radius: 5px;
             border: .5px solid darkgray;
+
+            height: 250px;
         }
         button{
             width: 100%;

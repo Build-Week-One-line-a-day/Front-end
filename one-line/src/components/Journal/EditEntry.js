@@ -14,18 +14,14 @@ const EditEntry = (props) => {
     return (
         <ContainerDiv>
             <Form>
-                <h1>One Line A Day Journal</h1>
+            <h1><span className="yellow">One Line A Day</span><span className="blue"> Journal</span></h1>
         
-                {/* This field needs to be updated to
-                change depending on what date the 
-                user selected to edit
-                <h2>09/20/2019</h2> */}
                 <div className="form-content">
                     
                     <Field type="text" value={props.values.title} name="title" placeholder="Entry Title" />
 
                     
-                    <Field component="textarea" value={props.values.contents} name="contents" placeholder="Enter something about your day here" />
+                    <Field component="textarea" rows="5" value={props.values.contents} name="contents" placeholder="Enter something about your day here" />
                     
                     <Field type="hidden" name="id" />
                     <button type="submit">Save Entry</button>
@@ -71,18 +67,31 @@ export default withRouter(withFormik({
 
 
 const ContainerDiv = styled.div`
-    font-family: 'Amatic SC', cursive;
+    
     display: flex;
     flex-direction: column;
     align-items: center;
 
+    form{
+        width: 800px;
+        max-width: 80%;
+    }
+
     h1 {
-        font-size: 3rem;
+        font-family: 'Amatic SC', cursive;
+        font-size: 5rem;
+        .yellow{
+            color: #ebbd36
+        }
+        .blue{
+            color: #47cbe6;
+        }
     }
 
     h2 {
         font-family: 'Poiret One', cursive;
         font-weight: 600;
+        font-size: 1.8rem;
     }
 
     .form-content {
@@ -107,17 +116,21 @@ const ContainerDiv = styled.div`
             height: 100px;
             border-radius: 5px;
             border: .5px solid darkgray;
+
+            height: 250px;
         }
         button{
             width: 100%;
             color: #fff;
-            background-color:#ba2545;
+            background-color:#47CBE6;
             margin: 10px;
             padding: 12px 12px;
             cursor: pointer;
             border: 0 none;
             border-radius: 4px;
             text-transform: uppercase;
+            font-weight: 800;
+            font-size: 1.3rem;
         }
         button:hover{
             transition: all 150ms linear;

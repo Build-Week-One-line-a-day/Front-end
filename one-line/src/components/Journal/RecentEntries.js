@@ -98,6 +98,17 @@ const ContainerDiv = styled.div`
         display: flex;
         justify-content: space-between;
         align-items: center;
+
+        @media only screen and (max-width: 600px) {
+            flex-direction: column;
+
+            button {
+                margin-bottom: 10px;
+            }
+        }
+
+
+
         .yellow{
             color: #ebbd36
         }
