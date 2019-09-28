@@ -140,7 +140,7 @@ const ContainerDiv = styled.div`
 // added to the list
 
 const PostContainer = styled.div`
-    width: 75%;
+    width: 60%;
     margin: 0 auto;
     margin-top: 1rem;
 `

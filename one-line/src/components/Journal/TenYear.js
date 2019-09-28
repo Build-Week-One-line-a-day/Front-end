@@ -204,7 +204,7 @@ const ContainerDiv = styled.div`
 // stretching longer and longer for each new post that is
 // added to the list
 const PostContainer = styled.div`
-    width: 75%;
+    width: 60%;
     margin: 0 auto;
     margin-top: 1rem;
 `
