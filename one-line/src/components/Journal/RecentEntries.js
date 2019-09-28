@@ -45,7 +45,7 @@ export default function RecentEntries(props) {
             </ContainerDiv>
 
             <PostContainer>
-                {props.entries.map((entry, index) =>{
+                {props.entries.reverse().map((entry, index) =>{
                 return <Entry {...props} setEntries={props.setEntries} entries={props.entries} entry={entry} index={index} key={index}/>
                 })}
             </PostContainer>

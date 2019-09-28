@@ -37,9 +37,7 @@ const EntryForm = (props) => {
                 <h2 className="quote">{quote.quote}</h2>
                 <h2 className="quote"> - {quote.author}</h2>
                 <div className="form-content">
-                    
                     <Field type="text" name="title" placeholder="Entry Title" />
-
                     
                     <Field component="textarea" name="contents" placeholder="Enter something about your day here" />
                     
