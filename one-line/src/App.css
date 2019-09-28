@@ -46,7 +46,7 @@ html, body{
 
 
 .card {
-  background: #f3efe4;
+  background: rgb(252, 252, 246); /*white*/
   margin-top: .25rem;
   margin-bottom: 15px;
   border-radius: 12px;
@@ -54,7 +54,9 @@ html, body{
   overflow: hidden;
 }
 .card .row{
-  background: rgba(243, 243, 79, 0.185);
+  width: 100%;
+  margin: 0 auto;
+  background: rgba(97, 97, 70, 0.185); /*transparent tint*/
 }
 
 .editAndDelete {
@@ -72,7 +74,9 @@ html, body{
 }
 
 .fullDate {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
+  font-weight: 800;
+  font-family: 'Poiret One', cursive;
 }
 
 .editAndDelete img {
@@ -84,13 +88,14 @@ html, body{
 }
 
 .title{
+  margin-top: 5px;
   font-family: 'Amatic SC', cursive;
   font-size: 2rem;
-  color: #f034c7;
+  color: #1e798b;
   font-weight: bold;
 }
 .contents{
-  font-family: 'Amatic SC', cursive;
+  font-family: 'Poiret One', cursive;
   font-size: 1.5rem;
   color: #1e798b;
   font-weight: bold;
@@ -129,6 +134,9 @@ html, body{
 
   .editAndDelete{
     margin-top: 0px;
+  }
+  .title{
+    margin-top: 0;
   }
 
 }

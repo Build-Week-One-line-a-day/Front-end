@@ -58,10 +58,10 @@ export default function Entry(props) {
                 </div>
             </div>
             
-            <CardBody className="col-sm-8 text-left">
+            <div className="col-sm-8 text-left">
                 <CardTitle className="title">{props.entry.title}</CardTitle>
                 <CardText className="contents">{props.entry.contents}</CardText>
-            </CardBody>
+            </div>
             </div>
         </Card>    
         </>

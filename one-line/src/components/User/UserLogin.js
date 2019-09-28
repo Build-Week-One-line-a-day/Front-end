@@ -96,14 +96,14 @@ const ContainerDiv = styled.div`
             display: flex;
             flex-direction: column;
             position: absolute;
-            top: 45%;
+            top: 45vh;
             left: 60%;
-            width: 12%;
+            width: 35vw%;
 
             @media only screen and (max-width: 600px) {
-                top: 29%;
+                top: 30vh;
                 left: 68%;
-                width: 23%;
+                width: 35vw;
             }
         
             input {
