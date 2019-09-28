@@ -33,8 +33,7 @@ const EntryForm = (props) => {
     return (
         <ContainerDiv>
             <Form>
-                <h1>One Line A Day Journal</h1>
-       
+                <h1><span className="yellow">One Line A Day</span><span className="blue"> Journal</span></h1>
                 <h3>{quote.quote}</h3>
                 <h3>{quote.author}</h3>
                 <div className="form-content">
@@ -97,6 +96,12 @@ const ContainerDiv = styled.div`
 
     h1 {
         font-size: 3rem;
+        .yellow{
+            color: #ebbd36
+        }
+        .blue{
+            color: #47cbe6;
+        }
     }
 
     h2 {
