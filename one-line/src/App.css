@@ -47,23 +47,21 @@ html, body{
   margin-top: 20px;
 }
 
-@media  (max-width: 600px) {
-    .row {
 
-      margin: 0 auto;
-      flex-direction: row;
-    }
 
-    .buttonContainer {
-      flex-direction: row;
-      display: flex;
-      align-items: center;
-    }
+.buttonContainer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
 
-    .editAndDelete{
-      margin-top: 0px;
-    }
+.fullDate {
+  font-size: 1.5rem;
+}
 
+.editAndDelete img {
+  height: 30px;
 }
 
 .buttonContainer button{
@@ -85,4 +83,25 @@ html, body{
 }
 .blue{
   color: #47cbe6;
+}
+
+
+@media  (max-width: 600px) {
+  .row {
+
+    margin: 0 auto;
+    flex-direction: row;
+  }
+
+  .buttonContainer {
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+
+  }
+
+  .editAndDelete{
+    margin-top: 0px;
+  }
+
 }
