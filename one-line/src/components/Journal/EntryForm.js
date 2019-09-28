@@ -34,8 +34,8 @@ const EntryForm = (props) => {
         <ContainerDiv>
             <Form>
                 <h1><span className="yellow">One Line A Day</span><span className="blue"> Journal</span></h1>
-                <h3>{quote.quote}</h3>
-                <h3>{quote.author}</h3>
+                <h2>{quote.quote}</h2>
+                <h2> - {quote.author}</h2>
                 <div className="form-content">
                     
                     <Field type="text" name="title" placeholder="Entry Title" />
@@ -84,7 +84,7 @@ export default withRouter(withFormik({
 
 
 const ContainerDiv = styled.div`
-    font-family: 'Amatic SC', cursive;
+    
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -95,7 +95,8 @@ const ContainerDiv = styled.div`
     }
 
     h1 {
-        font-size: 3rem;
+        font-family: 'Amatic SC', cursive;
+        font-size: 5rem;
         .yellow{
             color: #ebbd36
         }
@@ -107,6 +108,7 @@ const ContainerDiv = styled.div`
     h2 {
         font-family: 'Poiret One', cursive;
         font-weight: 600;
+        font-size: 1.8rem;
     }
 
     .form-content {
@@ -142,6 +144,8 @@ const ContainerDiv = styled.div`
             border: 0 none;
             border-radius: 4px;
             text-transform: uppercase;
+            font-weight: 800;
+            font-size: 1.3rem;
         }
         button:hover{
             transition: all 150ms linear;

@@ -1,6 +1,8 @@
 html, body{
   box-sizing: border-box;
   margin: 0 auto;
+  background-image: url(https://www.transparenttextures.com/patterns/paper-3.png);
+  background-color: #4b5a69;
 }
 
 .App {
@@ -41,14 +43,44 @@ html, body{
   }
 }
 
+
+
+.card {
+
+  margin-top: .25rem;
+  margin-bottom: 15px;
+  border-radius: 42px;
+  border: 3px solid #edc71c;
+
+}
+
 .editAndDelete {
   margin-top: 20px;
+}
+
+
+
+.buttonContainer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  margin-left: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.fullDate {
+  font-size: 1.5rem;
+}
+
+.editAndDelete img {
+  height: 30px;
 }
 
 .buttonContainer button{
   margin: .5em .5rem;
 }
-
 
 /* .editAndDelete button .trash {
   fill: orange;
@@ -57,12 +89,32 @@ html, body{
 /* .buttonContainer .editAndDelete{
   padding: 0 1rem;
 } */
-.card{
-  margin-top: .25rem;
-}
+
 .yellow{
   color: #ebbd36
 }
 .blue{
   color: #47cbe6;
+}
+
+
+@media  (max-width: 600px) {
+  .row {
+
+    margin: 0 auto;
+    flex-direction: row;
+  }
+
+  .buttonContainer {
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    margin-left: 0px;
+
+  }
+
+  .editAndDelete{
+    margin-top: 0px;
+  }
+
 }

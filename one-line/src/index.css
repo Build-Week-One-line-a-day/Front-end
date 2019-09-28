@@ -1,5 +1,6 @@
 #root {
   display: flex;
+  
 }
 
 body {
@@ -10,9 +11,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-
-  background-color: #4b5a69;
-  background-image: url(https://www.transparenttextures.com/patterns/paper-3.png);
 
 }
 

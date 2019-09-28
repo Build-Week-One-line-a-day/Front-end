@@ -20,7 +20,7 @@ export default function TenYear(props) {
                 "title": "next week",
                 "contents": "seed text",
                 "user_id": 7,
-                "created_at": "2017-09-26 02:42:57",
+                "created_at": "2016-09-26 02:42:57",
                 "updated_at": "2017-09-26 02:45:57"
         }
 
@@ -147,7 +147,7 @@ const ContainerDiv = styled.div`
     }
     h1{
         font-family: 'Amatic SC',cursive;
-        font-size: 3rem;
+        font-size: 5rem;
         margin-bottom: 0;
         .yellow{
             color: #ebbd36
@@ -192,7 +192,7 @@ const ContainerDiv = styled.div`
         }
 
         h1{
-            font-size: 2em;
+            font-size: 3em;
             font-family: 'Amatic SC',cursive;
         }
     }
@@ -207,4 +207,8 @@ const PostContainer = styled.div`
     width: 60%;
     margin: 0 auto;
     margin-top: 1rem;
+
+    @media only screen and (max-width: 600px) {
+        width: 90%;
+      }
 `
