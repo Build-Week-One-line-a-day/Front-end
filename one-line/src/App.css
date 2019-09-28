@@ -1,6 +1,8 @@
 html, body{
   box-sizing: border-box;
   margin: 0 auto;
+  background-image: url(https://www.transparenttextures.com/patterns/paper-3.png);
+  background-color: #4b5a69;
 }
 
 .App {

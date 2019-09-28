@@ -67,6 +67,13 @@ const ContainerDiv = styled.div`
     align-items: center;
     font-family: 'Amatic SC', cursive;
 
+
+    background: #cf0732;
+    background-image: url(https://www.transparenttextures.com/patterns/notebook.png);
+    border-bottom-left-radius: 55rem;
+    border-bottom-right-radius: 55rem;
+    border-bottom: 2px solid #edc71c;
+
     h1 {
         font-size: 3rem;
     }
