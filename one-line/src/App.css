@@ -48,6 +48,11 @@ html, body{
 .buttonContainer button{
   margin: .25em .5rem;
 }
+
+/* .editAndDelete button .trash {
+  fill: orange;
+  border: 1px solid red;
+} */
 /* .buttonContainer .editAndDelete{
   padding: 0 1rem;
 } */

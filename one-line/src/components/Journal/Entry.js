@@ -7,7 +7,8 @@ import {
 // import styled from 'styled-components'
 import {NavLink} from 'react-router-dom'
 import axios from 'axios';
-import Trash from '../../img/trash.svg'
+import Trash from '../../img/trashBlue.svg'
+import Pencil from '../../img/pencilBlue.svg'
 
 export default function Entry(props) {
     console.log("entry props", props)
@@ -51,10 +52,10 @@ export default function Entry(props) {
                 
                 <div className="editAndDelete">
                     <NavLink to={{pathname: `/edit/${props.entry.id}`, state: {title: props.entry.title, contents: props.entry.contents, created_at: props.entry.created_at} }} >
-                        <Button outline color='warning' size='sm'>edit</Button>
+                        <Button outline color='warning' size='sm'><img width={16} src={Pencil} /></Button>
                     </NavLink>    
                         
-                    <Button outline onClick={deletePost} color="danger" size="sm"><img width={16} src={Trash} alt="trash can" /></Button>
+                    <Button outline onClick={deletePost} color="danger" size="sm"><img width={16} src={Trash} alt="trash can" className="trash" /></Button>
                 </div>
             </div>
             

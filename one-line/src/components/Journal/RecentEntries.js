@@ -2,7 +2,7 @@ import React, {useEffect} from 'react'
 import {axiosWithAuth} from '../../utils/axiosWithAuth'
 import {NavLink} from 'react-router-dom'
 import styled from 'styled-components'
-import notesImage from '../../img/yellowNotes.svg'
+import notesImage from '../../img/note4.svg'
 import Entry from './Entry'
 
 export default function RecentEntries(props) {
@@ -140,7 +140,7 @@ const ContainerDiv = styled.div`
 // added to the list
 
 const PostContainer = styled.div`
-    width: 75%;
+    width: 60%;
     margin: 0 auto;
     margin-top: 1rem;
 `
