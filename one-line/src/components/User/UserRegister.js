@@ -17,7 +17,7 @@ const UserForm = ({status, setId}) => {
 
     return (
         <ContainerDiv>
-            <h1>One Line A Day Journal</h1>
+            <h1><span className="yellow">One Line A Day</span><span className="blue"> Journal</span></h1>
             <Form>
                 <div className="img-and-form">
                     <img width={600} src={HomeImage} alt="Girl pointing to phone"/>
@@ -67,6 +67,12 @@ const ContainerDiv = styled.div`
 
     h1 {
         font-size: 3rem;
+        .yellow{
+            color: #ebbd36
+        }
+        .blue{
+            color: #47cbe6;
+        }
     }
 
     img {
