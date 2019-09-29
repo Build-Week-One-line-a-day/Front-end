@@ -46,19 +46,22 @@ html, body{
 
 
 .card {
-
+  background: rgb(252, 252, 246); /*white*/
   margin-top: .25rem;
   margin-bottom: 15px;
-  border-radius: 42px;
-  border: 3px solid #edc71c;
-
+  border-radius: 12px;
+  border: 2px solid #edc71c;
+  overflow: hidden;
+}
+.card .row{
+  width: 100%;
+  margin: 0 auto;
+  background: rgba(97, 97, 70, 0.185); /*transparent tint*/
 }
 
 .editAndDelete {
   margin-top: 20px;
 }
-
-
 
 .buttonContainer {
   display: flex;
@@ -71,7 +74,9 @@ html, body{
 }
 
 .fullDate {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
+  font-weight: 800;
+  font-family: 'Poiret One', cursive;
 }
 
 .editAndDelete img {
@@ -80,6 +85,20 @@ html, body{
 
 .buttonContainer button{
   margin: .5em .5rem;
+}
+
+.title{
+  margin-top: 5px;
+  font-family: 'Amatic SC', cursive;
+  font-size: 2rem;
+  color: #1e798b;
+  font-weight: bold;
+}
+.contents{
+  font-family: 'Poiret One', cursive;
+  font-size: 1.5rem;
+  color: #1e798b;
+  font-weight: bold;
 }
 
 /* .editAndDelete button .trash {
@@ -91,7 +110,7 @@ html, body{
 } */
 
 .yellow{
-  color: #ebbd36
+  color: #ebbd36;
 }
 .blue{
   color: #47cbe6;
@@ -116,5 +135,13 @@ html, body{
   .editAndDelete{
     margin-top: 0px;
   }
+  .title{
+    margin-top: 0;
+  }
 
+}
+
+.loginButtons{
+  background: rgba(71, 22, 55, 0.671);
+  color: #ffc0cb;
 }

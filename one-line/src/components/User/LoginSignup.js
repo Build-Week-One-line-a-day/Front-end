@@ -10,8 +10,8 @@ export default function LoginSignup() {
             <div className="button-img-container">
             <img width={600} src={HomeImage} alt="Girl pointing to phone" />
             <div className="button-section">
-                <NavLink to='user-register'><button>Sign Up</button></NavLink>
-                <NavLink to='user-login'><button>Log In</button></NavLink>
+                <NavLink to='user-register'><button className="loginButtons">Sign Up</button></NavLink>
+                <NavLink to='user-login'><button className="loginButtons">Log In</button></NavLink>
             </div>
             </div>
         </ContainerDiv>
@@ -62,6 +62,7 @@ const ContainerDiv = styled.div`
           }
 
         button {
+            letter-spacing: 2px;
             // font-family: 'Poiret One', cursive;
             font-weight: 800;
             width: 96px;
@@ -69,6 +70,7 @@ const ContainerDiv = styled.div`
             border-radius: 27px;
             margin-bottom: 15px;
             font-size: 1rem;
+            border: 0;
         }
     }
 

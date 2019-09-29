@@ -34,12 +34,10 @@ const EntryForm = (props) => {
         <ContainerDiv>
             <Form>
                 <h1><span className="yellow">One Line A Day</span><span className="blue"> Journal</span></h1>
-                <h2>{quote.quote}</h2>
-                <h2> - {quote.author}</h2>
+                <h2 className="quote">{quote.quote}</h2>
+                <h2 className="quote"> - {quote.author}</h2>
                 <div className="form-content">
-                    
                     <Field type="text" name="title" placeholder="Entry Title" />
-
                     
                     <Field component="textarea" name="contents" placeholder="Enter something about your day here" />
                     
@@ -108,7 +106,14 @@ const ContainerDiv = styled.div`
     h2 {
         font-family: 'Poiret One', cursive;
         font-weight: 600;
-        font-size: 1.8rem;
+        font-size: 1.5rem;
+        color: #fff;
+        padding: 1rem 0;
+        letter-spacing: 5px;
+        line-height: 1;
+        @media only screen and (max-width:600px){
+            font-size: 1.15rem;
+        }
     }
 
     .form-content {
@@ -121,14 +126,14 @@ const ContainerDiv = styled.div`
         input {
             border-radius: 5px;
             width: 100%;
-            padding: .666rem 0;
+            padding: .666rem;
             margin-bottom: 10px;
             border: .5px solid darkgray;
         }
 
         textarea {
             width: 100%;
-            padding: 2rem 0;
+            padding: .666rem;
             margin-bottom: 10px;
             height: 100px;
             border-radius: 5px;

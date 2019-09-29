@@ -24,7 +24,7 @@ const UserForm = ({status, setId, setWelcome}) => {
                     <div className="form-content">
                         <Field type="text" name="username" placeholder="Username" />
                         <Field type="password" name="password" placeholder="Password" />
-                        <button type="submit">Log In</button>
+                        <button className="loginButtons" type="submit">Log In</button>
                     </div>
                 </div>
             </Form>
@@ -96,20 +96,24 @@ const ContainerDiv = styled.div`
             display: flex;
             flex-direction: column;
             position: absolute;
-            top: 45%;
+            top: 45vh;
             left: 60%;
-            width: 12%;
+            width: 35vw;
 
             @media only screen and (max-width: 600px) {
-                top: 29%;
-                left: 68%;
-                width: 23%;
+                flex-direction: row;
+                top: 35vh;
+                position: static;
+                width: 100%
+                justify-content: space-around;
             }
         
             input {
                 font-size: 1rem;
                 margin-bottom: 15px;
                 height: 30px;
+                padding: 1rem;
+                border: 0;
             }
 
             button {
@@ -119,7 +123,7 @@ const ContainerDiv = styled.div`
                 // font-family: 'Poiret One', cursive;
                 font-weight: 600;
                 font-size: 1.4rem;
-
+                border: 0;
                 @media only screen and (max-width: 600px) {
                     font-size: 1rem;
                     margin-top: -3px;
