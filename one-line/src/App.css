@@ -140,3 +140,8 @@ html, body{
   }
 
 }
+
+.loginButtons{
+  background: rgba(71, 22, 55, 0.671);
+  color: #ffc0cb;
+}

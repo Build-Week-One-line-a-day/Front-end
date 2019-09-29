@@ -24,7 +24,7 @@ const UserForm = ({status, setId, setWelcome}) => {
                     <div className="form-content">
                         <Field type="text" name="username" placeholder="Username" />
                         <Field type="password" name="password" placeholder="Password" />
-                        <button type="submit">Log In</button>
+                        <button className="loginButtons" type="submit">Log In</button>
                     </div>
                 </div>
             </Form>
