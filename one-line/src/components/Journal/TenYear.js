@@ -48,7 +48,7 @@ export default function TenYear(props) {
 
 
 
-        setMasterEntries([...props.entries, user])
+        setMasterEntries([user, ...props.entries])
         console.log('masterEntries', masterEntries)
     }, [])
 
