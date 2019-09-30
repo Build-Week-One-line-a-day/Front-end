@@ -102,16 +102,18 @@ const ContainerDiv = styled.div`
         border-radius: 5px;
 
         input {
+            color: #666;
             border-radius: 5px;
             width: 100%;
-            padding: .666rem 0;
+            padding: .666rem;
             margin-bottom: 10px;
             border: .5px solid darkgray;
         }
 
         textarea {
+            color: #666;
             width: 100%;
-            padding: 2rem 0;
+            padding: .666rem;
             margin-bottom: 10px;
             height: 100px;
             border-radius: 5px;
