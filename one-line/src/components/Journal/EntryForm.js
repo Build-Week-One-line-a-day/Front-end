@@ -15,10 +15,10 @@ const EntryForm = (props) => {
     const [quote, setQuote] = useState('')
 
     useEffect(() => {
-        axios.get("http://quotes.stormconsultancy.co.uk/random.json")
+        axios.get("https://api.adviceslip.com/advice")
             .then(response => {
                 console.log('random quote', response);
-                setQuote(response.data)
+                setQuote(response.data.slip)
             })
             .catch(err => {
                 console.log(err);
@@ -34,8 +34,7 @@ const EntryForm = (props) => {
         <ContainerDiv>
             <Form>
                 <h1><span className="yellow">One Line A Day</span><span className="blue"> Journal</span></h1>
-                <h2 className="quote">{quote.quote}</h2>
-                <h2 className="quote"> - {quote.author}</h2>
+                <h2 className="quote">{quote.advice}</h2>
                 <div className="form-content">
                     <Field type="text" name="title" placeholder="Entry Title" />
                     
