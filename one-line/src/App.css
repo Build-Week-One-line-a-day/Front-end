@@ -85,6 +85,12 @@ html, body{
 
 .buttonContainer button{
   margin: .5em .5rem;
+  
+}
+
+.trash {
+  background-color: #DA4363 !important;
+  border-color: #DA4363 !important;
 }
 
 .title{

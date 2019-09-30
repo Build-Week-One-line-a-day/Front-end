@@ -54,7 +54,7 @@ export default function Entry(props) {
                     <NavLink to={{pathname: `/edit/${props.entry.id}`, state: {title: props.entry.title, contents: props.entry.contents, created_at: props.entry.created_at} }} >
                         <Button color='warning' size='sm'><img src={Pencil} /></Button>
                     </NavLink>    
-                    <Button onClick={deletePost} color="danger" size="sm"><img src={Trash} alt="trash can" className="trash" /></Button>
+                    <Button onClick={deletePost} className="trash" size="sm"><img src={Trash} alt="trash can" className="trash" /></Button>
                 </div>
             </div>
             
