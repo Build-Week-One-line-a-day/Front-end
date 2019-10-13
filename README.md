@@ -1,5 +1,5 @@
 # Front-end
-# Project Title
+# One Line A Day
 
 One Line A Day Journaling App  
 
