@@ -1,62 +1,62 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
 import { withFormik, Form, Field } from 'formik';
 import axios from 'axios';
-import {withRouter} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 import HomeImage from '../../img/HomeImage.svg';
 
-const UserForm = ({status, setId, setWelcome}) => {
-    // console.log("status", status)
-    const [users, setUsers] = useState([]);
+const UserForm = () => {
+  return (
+    <ContainerDiv>
+      <h1>
+        <span className="yellow">One Line A Day</span>
+        <span className="blue"> Journal</span>
+      </h1>
+      <Form>
+        <div className="img-and-form">
+          <img width={600} src={HomeImage} alt="Girl pointing to phone" />
+          <div className="form-content">
+            <Field type="text" name="username" placeholder="Username" />
+            <Field type="password" name="password" placeholder="Password" />
+            <button className="loginButtons" type="submit">
+              Log In
+            </button>
+          </div>
+        </div>
+      </Form>
+    </ContainerDiv>
+  );
+};
 
-    useEffect(() => {
-        if(status) {
-            setUsers([ ...users, status])
-        }
-    }, [status, users])
+UserForm.propTypes = {
+  status: PropTypes.object,
+};
 
-    return (
-        <ContainerDiv>
-            <h1><span className="yellow">One Line A Day</span><span className="blue"> Journal</span></h1>
-            <Form>
-                <div className="img-and-form">
-                    <img width={600} src={HomeImage} alt="Girl pointing to phone" />
-                    <div className="form-content">
-                        <Field type="text" name="username" placeholder="Username" />
-                        <Field type="password" name="password" placeholder="Password" />
-                        <button className="loginButtons" type="submit">Log In</button>
-                    </div>
-                </div>
-            </Form>
-        </ContainerDiv>
-    )
-}
-
-export default withRouter(withFormik({
-    mapPropsToValues: (values) => {
-        return {
-            username: values.username || '',
-            password: values.password || '',
-        }
-    },
+export default withRouter(
+  withFormik({
+    mapPropsToValues: (props) => ({
+      username: props.username || '',
+      password: props.password || '',
+    }),
 
     handleSubmit: (values, formikBag) => {
-        // console.log("Values", values);
-        // console.log('formikBag', formikBag)
-        axios.post('https://back-end-c9ai.onrender.com/api/auth/login', values)
-          .then((res) => {
-            // console.log('login res', res)
-            formikBag.props.setId(res.data.user.id)
-            formikBag.props.setWelcome(res.data.message)
-            formikBag.props.notify()
-            localStorage.setItem('token', res.data.token)
-            formikBag.props.history.push('/recent')
-          })
-          .catch((err) => {
-            console.log('Error: ', err)
-          })
-      }
-})(UserForm))
+      axios
+        .post('https://back-end-c9ai.onrender.com/api/auth/login', values)
+        .then((res) => {
+          formikBag.props.setId(res.data.user.id);
+          formikBag.props.setWelcome(res.data.message);
+          formikBag.props.notify?.(); // Optional chaining in case `notify` isn't passed
+          localStorage.setItem('token', res.data.token);
+          formikBag.props.history.push('/recent');
+        })
+        .catch((err) => {
+          console.error('Login error:', err);
+        });
+    },
+  })(UserForm)
+);
+
 
 
 

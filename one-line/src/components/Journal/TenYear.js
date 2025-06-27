@@ -1,121 +1,85 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import TenYearImg from '../../img/yellowCalendar.svg';
 import Entry from './Entry';
 
+export default function TenYear({ entries = [], setEntries, ...rest }) {
+  const [masterEntries, setMasterEntries] = useState([]);
 
-export default function TenYear(props) {
-    console.log('Ten Year Props', props)
-    
-    // const [date, setDate] = useState('');
-    // const [entries, setEntries] = useState([])
-    const [masterEntries, setMasterEntries] = useState();
+  useEffect(() => {
+    const user = {
+      id: 17,
+      title: 'next week',
+      contents: 'seed text',
+      user_id: 7,
+      created_at: '2016-09-26 02:42:57',
+      updated_at: '2017-09-26 02:45:57'
+    };
 
-    // let masterEntries;
+    setMasterEntries([user, ...entries]);
+  }, [entries]);
 
-    useEffect(() => {
-        const user = {
-                "id": 17,
-                "title": "next week",
-                "contents": "seed text",
-                "user_id": 7,
-                "created_at": "2016-09-26 02:42:57",
-                "updated_at": "2017-09-26 02:45:57"
-        }
+  function tenYearFormat(event) {
+    const dateInput = event.target.value;
+    if (!dateInput || !masterEntries.length) return;
 
-        // figure out how to hard code multiple objects for testing
-        // ask back end to seed this data for testing
+    const [pickedYear, pickedMonth, pickedDay] = dateInput.split('-');
+    const monthDayPicked = `${pickedMonth}-${pickedDay}`;
+    const yearThreshold = parseInt(pickedYear, 10) - 10;
 
-        // [
-        //     {
-        //         "id": 17,
-        //         "title": "next week",
-        //         "contents": "seed text",
-        //         "user_id": 7,
-        //         "created_at": "2017-09-26 02:42:57",
-        //         "updated_at": "2017-09-26 02:45:57"
-        //     },
-        //     {
-        //         "id": 18,
-        //         "title": "next week",
-        //         "contents": "seed text",
-        //         "user_id": 7,
-        //         "created_at": "2017-09-26 02:42:57",
-        //         "updated_at": "2017-09-26 02:45:57"
-        //     }
-        // ]
+    const filtered = masterEntries.filter((entry) => {
+      const [entryDate] = entry.created_at?.split(' ') || [];
+      const [entryYear, entryMonth, entryDay] = entryDate.split('-');
+      const monthDayEntry = `${entryMonth}-${entryDay}`;
+      return monthDayEntry === monthDayPicked && parseInt(entryYear, 10) >= yearThreshold;
+    });
 
+    setEntries(filtered);
+  }
 
+  return (
+    <>
+      <ContainerDiv>
+        <h1>
+          <span className="yellow">One Line A Day</span>
+          <span className="blue"> Journal</span>
+        </h1>
+        <img src={TenYearImg} alt="tenyearimg" />
+        <div className="btn-row">
+          <h1>
+            <span className="yellow">Ten Year</span>{' '}
+            <span className="blue">Page</span>
+          </h1>
+          <input onChange={tenYearFormat} type="date" />
+          <NavLink to="/recent">
+            <button>Back</button>
+          </NavLink>
+        </div>
+      </ContainerDiv>
 
-        setMasterEntries([user, ...props.entries])
-        console.log('masterEntries', masterEntries)
-    }, [masterEntries, props.entries])
-
-    function tenYearFormat(event){
-        console.log('second master entries', masterEntries)
-        const tenYearEntries = masterEntries.filter((entry) => {
-            let formattedDate = entry.created_at.split(" ")
-            let splitYearMonthDay = formattedDate[0].split("-")
-            // step 1 pull out month and day of the entry
-
-            let MonthAndDay = splitYearMonthDay[1] + '-' + splitYearMonthDay[2]
-
-            // step 1.5 pull out year entry 
-
-            let year = splitYearMonthDay[0]
-
-            // step 2 pull out the month and day of date picked
-
-            let datePicked = event.target.value.split("-")
-            let MonthAndDayDatePicked = datePicked[1] + "-" + datePicked[2]
-
-            // step 3 pull out year of date picked
-
-            let yearDatePicked = datePicked[0]
-
-            // step 4 subtract year of date picked by 10
-
-            yearDatePicked -= 10
-
-            // step 5 month and day of entry == month and day of date picked
-            return MonthAndDay === MonthAndDayDatePicked && year >= yearDatePicked
-
-
-            // step 6 year of entry >= year from step 4
-            // return back into the tenYearEntries
-            // console.log('formatted date', formattedDate)
-            // return formattedDate[0] == event.target.value 
-        })
-       props.setEntries(tenYearEntries) 
-    }
-
-    
-    return (
-        <>
-            <ContainerDiv>
-                <h1><span className="yellow">One Line A Day</span><span className="blue"> Journal</span></h1>
-                <img src={TenYearImg} alt='tenyearimg' />
-                <div className="btn-row">
-                    <h1><span class="yellow">Ten Year</span> <span class="blue">Page</span></h1>
-                    {/* <DatePickerComponent /> */}
-                    <input onChange={tenYearFormat} type={"date"}/>
-                    <NavLink to='/recent'>
-                        <button>Back</button>
-                    </NavLink>
-                </div>
-
-            </ContainerDiv>
-
-            <PostContainer>
-                {props.entries.map((entry, index) =>{
-                    return <Entry {...props} setEntries={props.setEntries} entries={props.entries} entry={entry} index={index} key={index} />
-                })}
-            </PostContainer>
-
-        </>
-    )
+      <PostContainer>
+        {entries.map((entry, index) => (
+          <Entry
+            {...rest}
+            key={entry.id || index}
+            setEntries={setEntries}
+            entries={entries}
+            entry={entry}
+            index={index}
+          />
+        ))}
+      </PostContainer>
+    </>
+  );
 }
+
+TenYear.propTypes = {
+  entries: PropTypes.arrayOf(PropTypes.object).isRequired,
+  setEntries: PropTypes.func.isRequired
+};
+
 
 
 const ContainerDiv = styled.div`

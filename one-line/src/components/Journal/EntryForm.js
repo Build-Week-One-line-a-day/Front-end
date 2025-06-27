@@ -1,81 +1,76 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import axios from 'axios';
-// import axiosWithAuth from '../../';
 import { withFormik, Form, Field } from 'formik';
 import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 import { axiosWithAuth } from '../../utils/axiosWithAuth';
 
+const EntryForm = () => {
+  const [quote, setQuote] = useState('');
 
+  useEffect(() => {
+    axios.get('https://api.adviceslip.com/advice')
+      .then((response) => {
+        setQuote(response.data.slip?.advice || ''); // safe chaining
+      })
+      .catch((err) => {
+        console.error('Quote API error:', err);
+      });
 
-const EntryForm = (props) => {
-    // console.log('props - entry form', props)
-    // console.log('id prop', props.id)
+    return () => {
+      console.log('clean up');
+    };
+  }, []);
 
-    const [quote, setQuote] = useState('')
+  return (
+    <ContainerDiv>
+      <Form>
+        <h1>
+          <span className="yellow">One Line A Day</span>
+          <span className="blue"> Journal</span>
+        </h1>
+        {quote && <h2 className="quote">{quote}</h2>}
+        <div className="form-content">
+          <Field type="text" name="title" placeholder="Entry Title" />
+          <Field component="textarea" name="contents" placeholder="Enter something about your day here" />
+          <Field type="hidden" name="id" />
+          <Field type="hidden" name="created_at" />
+          <button type="submit">Save Entry</button>
+        </div>
+      </Form>
+    </ContainerDiv>
+  );
+};
 
-    useEffect(() => {
-        axios.get("https://api.adviceslip.com/advice")
-            .then(response => {
-                console.log('random quote', response);
-                setQuote(response.data.slip)
-            })
-            .catch(err => {
-                console.log(err);
-            });
-            return () => {
-                console.log('clean up')
-            }
-    },[])
-    
-
-    
-    return (
-        <ContainerDiv>
-            <Form>
-                <h1><span className="yellow">One Line A Day</span><span className="blue"> Journal</span></h1>
-                <h2 className="quote">{quote.advice}</h2>
-                <div className="form-content">
-                    <Field type="text" name="title" placeholder="Entry Title" />
-                    
-                    <Field component="textarea" name="contents" placeholder="Enter something about your day here" />
-                    
-                    <Field type="hidden" name="id" />
-                    <Field type="hidden" name="created_at" />
-
-                    <button type="submit">Save Entry</button>
-                </div>
-            </Form>
-        </ContainerDiv>
-    )
-}
+EntryForm.propTypes = {
+  title: PropTypes.string,
+  contents: PropTypes.string,
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  created_at: PropTypes.string,
+  history: PropTypes.object
+};
 
 export default withRouter(withFormik({
-    mapPropsToValues: (values) => {
-        return {
-            title: values.title || '',
-            contents: values.contents || '',
-            id: values.id || '',
-            created_at: values.created_at || ''
-        }
-    },
+  mapPropsToValues: (props) => ({
+    title: props.title || '',
+    contents: props.contents || '',
+    id: props.id || '',
+    created_at: props.created_at || ''
+  }),
 
+  handleSubmit: (values, formikBag) => {
+    const { id, ...rest } = values;
+    axiosWithAuth().post(`/users/${id}/posts`, rest)
+      .then(() => {
+        formikBag.props.history.push('/recent');
+      })
+      .catch((err) => {
+        console.error('Error submitting entry:', err);
+      });
+  }
+})(EntryForm));
 
-    handleSubmit: (values, formikBag) => {
-        console.log("Values", values);
-        console.log('formikBag', formikBag)
-        const {id, ...rest} = values;
-        axiosWithAuth().post(`/users/${id}/posts`, rest)
-          .then((res) => {
-                formikBag.props.history.push('/recent')
-                console.log(formikBag)
-          })
-          .catch((err) => {
-            console.log('Error: ', err)
-          })
-      }
-
-})(EntryForm))
 
 
 
