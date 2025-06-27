@@ -1,57 +1,73 @@
-import React, {useEffect} from 'react'
-import {axiosWithAuth} from '../../utils/axiosWithAuth'
-import {NavLink} from 'react-router-dom'
-import styled from 'styled-components'
-import notesImage from '../../img/note4.svg'
-import Entry from './Entry'
+import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { axiosWithAuth } from '../../utils/axiosWithAuth';
+import { NavLink } from 'react-router-dom';
+import styled from 'styled-components';
+import notesImage from '../../img/note4.svg';
+import Entry from './Entry';
 
-export default function RecentEntries(props) {
-    console.log('recent entries props', props)
-   
+export default function RecentEntries({ id, entries, setEntries, ...rest }) {
+  useEffect(() => {
+    axiosWithAuth()
+      .get(`/users/${id}/posts`)
+      .then((response) => {
+        setEntries(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching posts:', error);
+      });
 
-    useEffect(()=>{
-        // console.log('recent entries props', props)
-        // Make a request for a user with a given ID
-        axiosWithAuth().get(`/users/${props.id}/posts`)
-        .then(function (response) {
-        // handle success
-        console.log(response.data);
-        props.setEntries(response.data)
-    })
-        .catch(function (error) {
-        // handle error
-        console.log(error);
-    })
     return () => {
-        console.log('clean up')
-    }
-    },[props.id, props.setEntries])
+      console.log('clean up');
+    };
+  }, [id, setEntries]);
 
-    return (
-        <>
-            <ContainerDiv>
-                <h1><span className="yellow">One Line A Day</span><span className="blue"> Journal</span></h1>
-                <img alt='notes' src={notesImage} />
-                <div className="btn-row">
-                <h1><span class="yellow">Recent</span><span class="blue">Entries</span></h1>
-                    <NavLink to='/create'><button>Add New</button></NavLink>
-                    <NavLink to='/full' >
-                        <button>Ten Year View</button>
-                    </NavLink>
-                </div>
-            
-                
-                
-            </ContainerDiv>
+  const entriesToDisplay = [...entries].reverse(); // prevent mutating props
 
-            <PostContainer>
-                {props.entries.reverse().map((entry, index) =>{
-                return <Entry {...props} setEntries={props.setEntries} entries={props.entries} entry={entry} index={index} key={index}/>
-                })}
-            </PostContainer>
-        </>
-    )
+  return (
+    <>
+      <ContainerDiv>
+        <h1>
+          <span className="yellow">One Line A Day</span>
+          <span className="blue"> Journal</span>
+        </h1>
+        <img alt="notes" src={notesImage} />
+        <div className="btn-row">
+          <h1>
+            <span className="yellow">Recent</span>
+            <span className="blue">Entries</span>
+          </h1>
+          <NavLink to="/create">
+            <button>Add New</button>
+          </NavLink>
+          <NavLink to="/full">
+            <button>Ten Year View</button>
+          </NavLink>
+        </div>
+      </ContainerDiv>
+
+      <PostContainer>
+        {entriesToDisplay.map((entry, index) => (
+          <Entry
+            {...rest}
+            key={entry.id || index}
+            setEntries={setEntries}
+            entries={entries}
+            entry={entry}
+            index={index}
+          />
+        ))}
+      </PostContainer>
+    </>
+  );
 }
+
+RecentEntries.propTypes = {
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  entries: PropTypes.arrayOf(PropTypes.object).isRequired,
+  setEntries: PropTypes.func.isRequired,
+};
+
 
 const ContainerDiv = styled.div`
     display: flex;
