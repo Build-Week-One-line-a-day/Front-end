@@ -8,7 +8,7 @@ import Entry from './Entry';
 export default function TenYear(props) {
     console.log('Ten Year Props', props)
     
-    const [date, setDate] = useState('');
+    // const [date, setDate] = useState('');
     // const [entries, setEntries] = useState([])
     const [masterEntries, setMasterEntries] = useState();
 
@@ -50,7 +50,7 @@ export default function TenYear(props) {
 
         setMasterEntries([user, ...props.entries])
         console.log('masterEntries', masterEntries)
-    }, [])
+    }, [masterEntries, props.entries])
 
     function tenYearFormat(event){
         console.log('second master entries', masterEntries)
@@ -79,12 +79,12 @@ export default function TenYear(props) {
             yearDatePicked -= 10
 
             // step 5 month and day of entry == month and day of date picked
-            return MonthAndDay == MonthAndDayDatePicked && year >= yearDatePicked
+            return MonthAndDay === MonthAndDayDatePicked && year >= yearDatePicked
 
 
             // step 6 year of entry >= year from step 4
             // return back into the tenYearEntries
-            console.log('formatted date', formattedDate)
+            // console.log('formatted date', formattedDate)
             // return formattedDate[0] == event.target.value 
         })
        props.setEntries(tenYearEntries) 

@@ -25,7 +25,7 @@ export default function RecentEntries(props) {
     return () => {
         console.log('clean up')
     }
-    },[])
+    },[props])
 
     return (
         <>

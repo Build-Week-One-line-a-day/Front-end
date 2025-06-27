@@ -1,18 +1,18 @@
 import React from 'react'
 import {axiosWithAuth} from '../../utils/axiosWithAuth'
 import {
-    Card, CardText, CardBody,
-    CardTitle, CardSubtitle, Button
+    Card, CardText,
+    CardTitle, Button
   } from 'reactstrap';
 // import styled from 'styled-components'
 import {NavLink} from 'react-router-dom'
-import axios from 'axios';
+// import axios from 'axios';
 import Trash from '../../img/trashBlue.svg'
 import Pencil from '../../img/pencilBlue.svg'
 
 export default function Entry(props) {
     console.log("entry props", props)
-    const index = props.index;
+    // const index = props.index;
     
     
 
@@ -52,7 +52,7 @@ export default function Entry(props) {
                 
                 <div className="editAndDelete">
                     <NavLink to={{pathname: `/edit/${props.entry.id}`, state: {title: props.entry.title, contents: props.entry.contents, created_at: props.entry.created_at} }} >
-                        <Button color='warning' size='sm'><img src={Pencil} /></Button>
+                        <Button color='warning' size='sm'><img alt="pencil" src={Pencil} /></Button>
                     </NavLink>    
                     <Button onClick={deletePost} className="trash" size="sm"><img src={Trash} alt="trash can" className="trash" /></Button>
                 </div>
