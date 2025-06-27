@@ -63,7 +63,7 @@ const ContainerDiv = styled.div`
 
         button {
             letter-spacing: 2px;
-            // font-family: 'Poiret One', cursive;
+            // font-family: "Jua", sans-serif;
             font-weight: 800;
             width: 96px;
             height: 52px;

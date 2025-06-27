@@ -120,14 +120,14 @@ const ContainerDiv = styled.div`
                 border-radius: 20px;
                 height: 40px;
                 margin-top: 20px;
-                // font-family: 'Poiret One', cursive;
+                // font-family: "Jua", sans-serif;
                 font-weight: 600;
                 font-size: 1.4rem;
                 border: 0;
                 @media only screen and (max-width: 600px) {
                     font-size: 1rem;
                     margin-top: -3px;
-                    /* font-family: 'Poiret One',cursive; */
+                    /* font-family: "Jua", sans-serif; */
                     font-weight: 800;
                 }
             }

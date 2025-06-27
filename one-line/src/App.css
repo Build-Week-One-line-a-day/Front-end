@@ -76,7 +76,7 @@ html, body{
 .fullDate {
   font-size: 1.3rem;
   font-weight: 800;
-  font-family: 'Poiret One', cursive;
+  font-family: "Jua", sans-serif;
 }
 
 .editAndDelete img {
@@ -101,7 +101,7 @@ html, body{
   font-weight: bold;
 }
 .contents{
-  font-family: 'Poiret One', cursive;
+  font-family: "Jua", sans-serif;
   font-size: 1.5rem;
   color: #1e798b;
   font-weight: bold;
