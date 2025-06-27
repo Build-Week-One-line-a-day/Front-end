@@ -98,7 +98,7 @@ const ContainerDiv = styled.div`
     }
 
     h2 {
-        font-family: 'Poiret One', cursive;
+        font-family: "Jua", sans-serif;
         font-weight: 600;
         font-size: 1.5rem;
         color: #fff;
